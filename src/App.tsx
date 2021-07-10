@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import ROUTES from 'utils/constants/routes';
+import SignIn from 'pages/SignIn';
 
 const App = () => (
   <Router>
@@ -14,7 +15,7 @@ const App = () => (
           Home
         </Route>
         <Route path={ROUTES.SIGN_IN} exact>
-          Sign In
+          <SignIn />
         </Route>
         <Route path={ROUTES.SIGN_UP} exact>
           Sign Up
