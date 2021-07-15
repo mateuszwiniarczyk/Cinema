@@ -3,12 +3,14 @@ import Input from 'components/Input';
 import { Button } from 'components/Button';
 import { Form } from './index.styles';
 
-const SignInForm = () => (
+const SignUpForm = () => (
   <Form>
+    <Input type="text" placeholder="Your name" />
     <Input type="email" placeholder="E-mail" />
     <Input type="password" placeholder="Password" />
-    <Button type="submit">Sign In</Button>
+    <Input type="password" placeholder="Repeat your password" />
+    <Button type="submit">Sign Up</Button>
   </Form>
 );
 
-export default SignInForm;
+export default SignUpForm;

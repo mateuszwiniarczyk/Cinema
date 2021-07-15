@@ -5,6 +5,7 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import ROUTES from 'utils/constants/routes';
 import SignIn from 'pages/SignIn';
+import SignUp from 'pages/Signup';
 
 const App = () => (
   <Router>
@@ -18,7 +19,7 @@ const App = () => (
           <SignIn />
         </Route>
         <Route path={ROUTES.SIGN_UP} exact>
-          Sign Up
+          <SignUp />
         </Route>
       </Switch>
     </ThemeProvider>
