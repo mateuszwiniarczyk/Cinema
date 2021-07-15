@@ -6,4 +6,6 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: flex-start;
   gap: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
