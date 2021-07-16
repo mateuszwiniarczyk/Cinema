@@ -4,7 +4,7 @@ type Props = {
   size?: string;
 };
 
-export const Title = styled.h2`
+const Title = styled.h2`
   color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   font-size: ${({ size }: Props) => {
@@ -22,3 +22,5 @@ export const Title = styled.h2`
     }
   }};
 `;
+
+export default Title;

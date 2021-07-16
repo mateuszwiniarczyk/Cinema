@@ -1,10 +1,11 @@
+import React from 'react';
 import { Wrapper } from './index.styles';
 
-type Props = {
+type props = {
   children: JSX.Element;
 };
 
-const AuthTemplate = ({ children }: Props) => (
+const AuthTemplate = ({ children }: props): JSX.Element => (
   <Wrapper>
     <img
       src="https://res.cloudinary.com/dmq8l8d5j/image/upload/v1625924750/auth_bg_k0xd5u.jpg"
