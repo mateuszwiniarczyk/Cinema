@@ -16,4 +16,8 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Inter', sans-serif;
         font-size: 1.6rem;
     }
+
+    input, textarea, select {
+        font-family: 'Inter', sans-serif; 
+    }
 `;
