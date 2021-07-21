@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'components/Input';
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 import { Form } from './index.styles';
 
 const SignUpForm = (): JSX.Element => (

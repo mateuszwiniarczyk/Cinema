@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,3 +28,5 @@ export const Button = styled.button`
     opacity: 0.85;
   }
 `;
+
+export default Button;

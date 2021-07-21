@@ -6,6 +6,7 @@ import { theme } from 'assets/styles/theme';
 import ROUTES from 'utils/constants/routes';
 import SignIn from 'pages/SignIn';
 import SignUp from 'pages/SignUp';
+import Home from 'pages/Home';
 
 const App = (): JSX.Element => (
   <Router>
@@ -13,7 +14,7 @@ const App = (): JSX.Element => (
       <GlobalStyle />
       <Switch>
         <Route path={ROUTES.HOME} exact>
-          Home
+          <Home />
         </Route>
         <Route path={ROUTES.SIGN_IN} exact>
           <SignIn />
