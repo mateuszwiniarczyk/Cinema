@@ -7,13 +7,14 @@ interface NavProps {
 
 export const Nav = styled.nav`
   padding: 2rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 
   ${({ theme }) => theme.mq.lg} {
     padding: 4rem 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
   }
 `;
 
