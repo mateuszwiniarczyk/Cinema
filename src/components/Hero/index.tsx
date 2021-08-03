@@ -5,13 +5,31 @@ import Container from 'components/Container';
 import Button from 'components/Button';
 import DetailsList from 'components/DetailsList';
 
+type trendingMedia = {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: string[];
+  id: number;
+  media_type: string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+};
+
 const Hero = (): JSX.Element => {
-  const [trendingMedia, setTrendingMedia] = useState<any>(null);
+  const [trendingMedia, setTrendingMedia] = useState<null | trendingMedia>(null);
   const [error, setError] = useState('');
+
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
+        `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_KEY}`
       )
       .then(({ data: { results } }) => {
         setTrendingMedia(results[0]);
