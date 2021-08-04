@@ -12,7 +12,8 @@ const breakpoints: Breakpoints = {
   md: 768,
   lg: 992,
   xl: 1200,
-  xxl: 1440
+  '2xl': 1440,
+  '3xl': 1600
 };
 
 export const theme = {

@@ -20,8 +20,12 @@ const Container = styled.div`
     width: 114rem;
   }
 
-  ${({ theme }) => theme.mq.xxl} {
+  ${({ theme }) => theme.mq['2xl']} {
     width: 132rem;
+  }
+
+  ${({ theme }) => theme.mq['3xl']} {
+    width: 152rem;
   }
 `;
 
