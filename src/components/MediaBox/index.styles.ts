@@ -12,9 +12,9 @@ export const Image = styled.img`
   aspect-ratio: 16 / 9;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.span`
+  display: block;
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 400;
   margin-top: 0.5rem;
 `;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Wrapper, Image, Title } from './index.styles';
-
 type movieProps = {
   adult: boolean;
   backdrop_path: string;

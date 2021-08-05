@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
+import 'swiper/swiper-bundle.min.css';
 import Container from 'components/Container';
-import { Wrapper, Title } from './index.styles';
+import { Wrapper, Title, ArrowWrapper, ArrowsWrapper, Header } from './index.styles';
 import MediaBox from 'components/MediaBox';
+import { ReactComponent as RightArrow } from 'assets/icons/right-chevron.svg';
+import { ReactComponent as LeftArrow } from 'assets/icons/left-chevron.svg';
 
 type props = {
   title: string;
@@ -62,6 +66,8 @@ const breakpoints = {
   }
 };
 
+SwiperCore.use([Navigation]);
+
 const SliderSection = ({ title, mediaType, category }: props): JSX.Element => {
   const [mediaList, setMediaList] = useState<movie[] | tvShow[] | null>(null);
 
@@ -79,8 +85,24 @@ const SliderSection = ({ title, mediaType, category }: props): JSX.Element => {
   return (
     <Wrapper>
       <Container>
-        <Title>{title}</Title>
-        <Swiper spaceBetween={25} breakpoints={breakpoints} navigation>
+        <Header>
+          <Title>{title}</Title>
+          <ArrowsWrapper>
+            <ArrowWrapper as="div" id={`prev-${mediaType}`}>
+              <LeftArrow />
+            </ArrowWrapper>
+            <ArrowWrapper as="div" id={`next-${mediaType}`}>
+              <RightArrow />
+            </ArrowWrapper>
+          </ArrowsWrapper>
+        </Header>
+        <Swiper
+          spaceBetween={25}
+          breakpoints={breakpoints}
+          navigation={{
+            prevEl: `#prev-${mediaType}`,
+            nextEl: `#next-${mediaType}`
+          }}>
           {mediaList &&
             mediaList.length &&
             mediaList.map(
