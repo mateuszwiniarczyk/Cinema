@@ -40,10 +40,10 @@ type props = {
 
 const MediaBox = ({ media, mediaType }: props): JSX.Element => {
   let title;
-  if ('original_name' in media) {
-    title = media.original_name;
+  if ('name' in media) {
+    title = media.name;
   } else {
-    title = media.original_title;
+    title = media.title;
   }
 
   return (

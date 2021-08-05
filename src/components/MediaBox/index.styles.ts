@@ -15,6 +15,6 @@ export const Image = styled.img`
 export const Title = styled.h2`
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0.5rem;
 `;

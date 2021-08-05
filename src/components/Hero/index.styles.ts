@@ -7,6 +7,7 @@ export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: 5rem;
 
   &::after {
     content: '';
