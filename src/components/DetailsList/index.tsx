@@ -13,10 +13,10 @@ type props = {
 const DetailsList = ({ year, type, rating }: props): JSX.Element => (
   <List>
     <li>
-      <RatingIcon /> {rating}
+      <MediaTypeIcon /> {type}
     </li>
     <li>
-      <MediaTypeIcon /> {type}
+      <RatingIcon /> {rating}
     </li>
     <li>
       <YearIcon /> {year.slice(0, 4)}

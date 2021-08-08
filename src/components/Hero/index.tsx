@@ -32,7 +32,7 @@ const Hero = (): JSX.Element => {
         `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_KEY}`
       )
       .then(({ data: { results } }) => {
-        setTrendingMedia(results[0]);
+        setTrendingMedia(results[1]);
       })
       .catch((error) => {
         setError(error);

@@ -14,7 +14,7 @@ export const Nav = styled.nav`
   z-index: 2;
 
   ${({ theme }) => theme.mq.lg} {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
   }
 `;
 

@@ -10,11 +10,18 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
 `;
 
 export const Title = styled.span`
   display: block;
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.white};
-  margin-top: 0.5rem;
+  margin: 0.5rem 0;
+`;
+
+export const Genre = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.colors.lightGrey};
 `;

@@ -11,16 +11,22 @@ export const List = styled.ul`
     align-items: center;
     gap: 1rem;
     text-transform: capitalize;
+    font-weight: 500;
 
     &:nth-of-type(2) {
       border-left: 2px solid ${({ theme }) => theme.colors.lightGrey};
       border-right: 2px solid ${({ theme }) => theme.colors.lightGrey};
       margin: 0 1.5rem;
       padding: 0 1.5rem;
+      color: ${({ theme }) => theme.colors.gold};
 
       ${({ theme }) => theme.mq.sm} {
         margin: 0 2rem;
         padding: 0 2rem;
+      }
+
+      svg {
+        fill: ${({ theme }) => theme.colors.gold};
       }
     }
   }

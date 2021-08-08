@@ -1,5 +1,8 @@
 import React from 'react';
-import { Wrapper, Image, Title } from './index.styles';
+import { Wrapper, Image, Title, Genre } from './index.styles';
+import movieGenres from 'data/genres/movie';
+import tvShowGenres from 'data/genres/tvShow';
+
 type movieProps = {
   adult: boolean;
   backdrop_path: string;
@@ -45,10 +48,17 @@ const MediaBox = ({ media, mediaType }: props): JSX.Element => {
     title = media.title;
   }
 
+  const genres = mediaType === 'movie' ? movieGenres : tvShowGenres;
+  const genre = media.genre_ids[0];
+  const mainGenre = genres[genre] ? genres[genre] : 'No data';
+
   return (
     <Wrapper to={`/${mediaType}/${media.id}`}>
-      <Image src={`https://image.tmdb.org/t/p/w300/${media.backdrop_path}`} alt="" />
-      <Title>{title}</Title>
+      <Image src={`https://image.tmdb.org/t/p/w300/${media.backdrop_path}`} alt={title} />
+      <div>
+        <Title>{title}</Title>
+        <Genre>{mainGenre}</Genre>
+      </div>
     </Wrapper>
   );
 };

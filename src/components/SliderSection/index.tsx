@@ -81,7 +81,6 @@ const SliderSection = ({ title, mediaType, category }: props): JSX.Element => {
       });
   }, [mediaType, category]);
 
-  console.log(mediaList);
   return (
     <Wrapper>
       <Container>

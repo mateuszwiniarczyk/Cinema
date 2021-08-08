@@ -48,9 +48,14 @@ export const ArrowWrapper = styled.div`
     width: 1.8rem;
     height: 1.8rem;
     fill: ${({ theme }) => theme.colors.white};
+    transition: transform 0.2s ease-in;
   }
 
   &:hover {
     opacity: 1;
+
+    svg {
+      transform: scale(1.1);
+    }
   }
 `;

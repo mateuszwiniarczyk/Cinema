@@ -23,7 +23,8 @@ export const theme = {
     primary: '#1c1d27',
     lightGrey: '#c4c4cf',
     grey: '#333333',
-    red: '#E50914'
+    red: '#E50914',
+    gold: '#FDB402'
   },
 
   mq: Object.keys(breakpoints).reduce((acc: MQ, breakpoint) => {
