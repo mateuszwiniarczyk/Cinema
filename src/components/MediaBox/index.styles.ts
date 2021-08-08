@@ -13,7 +13,7 @@ export const Image = styled.img`
   border-radius: 0.5rem;
 `;
 
-export const Title = styled.span`
+export const Name = styled.span`
   display: block;
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.white};
