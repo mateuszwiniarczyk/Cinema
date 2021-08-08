@@ -43,14 +43,12 @@ const Slider = ({ children, arrowBtnId }: Props): JSX.Element => {
   };
   return (
     <Wrapper>
-      <ArrowsWrapper>
-        <ArrowButton type="button" id={`prev-${arrowBtnId}`}>
-          <LeftArrow />
-        </ArrowButton>
-        <ArrowButton type="button" id={`next-${arrowBtnId}`}>
-          <RightArrow />
-        </ArrowButton>
-      </ArrowsWrapper>
+      <ArrowButton type="button" id={`prev-${arrowBtnId}`}>
+        <LeftArrow />
+      </ArrowButton>
+      <ArrowButton type="button" right={true} id={`next-${arrowBtnId}`}>
+        <RightArrow />
+      </ArrowButton>
       <Swiper {...swiperDefaultConfig}>{children}</Swiper>
     </Wrapper>
   );
