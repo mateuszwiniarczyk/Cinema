@@ -3,7 +3,7 @@ import SwiperCore, { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
-import { Wrapper, ArrowsWrapper, ArrowButton } from './index.styles';
+import { Wrapper, ArrowButton } from './index.styles';
 import { ReactComponent as RightArrow } from 'assets/icons/arrow-right.svg';
 import { ReactComponent as LeftArrow } from 'assets/icons/arrow-left.svg';
 

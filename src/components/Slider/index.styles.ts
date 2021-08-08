@@ -4,22 +4,6 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const ArrowsWrapper = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.mq.xs} {
-    position: absolute;
-    top: 50%;
-    left: 0.5rem;
-    right: 0.5rem;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-`;
-
 type ArrowButtonProps = {
   right?: boolean;
 };
