@@ -44,7 +44,7 @@ type Props = {
 
 const TrendingMediaList = ({ trendingList }: Props): JSX.Element => (
   <>
-    {trendingList && trendingList.length ? (
+    {trendingList?.length ? (
       <Slider arrowBtnId="all">
         {trendingList.map((media) => {
           const { id, poster_path, media_type } = media;

@@ -25,7 +25,7 @@ type Props = {
 
 const PopularMovieList = ({ movieList }: Props): JSX.Element => (
   <>
-    {movieList && movieList.length ? (
+    {movieList?.length ? (
       <Slider arrowBtnId="movie">
         {movieList.map(({ id, title, backdrop_path, genre_ids }) => (
           <SwiperSlide key={id}>
