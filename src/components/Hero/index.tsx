@@ -59,7 +59,7 @@ const Hero = (): JSX.Element => {
           </Content>
         </Container>
       ) : (
-        'Loading'
+        <h2>Loading</h2>
       )}
       {error ? <span>{error}</span> : null}
     </Wrapper>
