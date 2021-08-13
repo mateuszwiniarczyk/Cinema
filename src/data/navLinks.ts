@@ -4,7 +4,7 @@ const navLinks = [
     label: 'Home'
   },
   {
-    path: '/tvshows',
+    path: '/tvs',
     label: 'Tv Shows'
   },
   {

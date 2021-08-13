@@ -4,6 +4,7 @@ import { Content, Image, Wrapper, Title, Description } from './index.styles';
 import Container from 'components/Container';
 import Button from 'components/Button';
 import DetailsList from 'components/DetailsList';
+import { Link } from 'react-router-dom';
 
 type trendingMedia = {
   adult: boolean;
@@ -52,7 +53,9 @@ const Hero = (): JSX.Element => {
               rating={trendingMedia.vote_average}
             />
             <Description>{trendingMedia.overview}</Description>
-            <Button>More info</Button>
+            <Button as={Link} to={`/${trendingMedia.media_type}/${trendingMedia.id}`}>
+              More info
+            </Button>
           </Content>
         </Container>
       ) : (

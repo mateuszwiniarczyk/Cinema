@@ -1,24 +1,30 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-interface NavProps {
+interface NavListProps {
   readonly isNavOpen: boolean;
 }
 
-export const Nav = styled.nav`
+interface NavProps {
+  readonly isNavScrolled: boolean;
+}
+
+export const Nav = styled.nav<NavProps>`
   padding: 2rem 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
-
-  ${({ theme }) => theme.mq.lg} {
-    padding: 2.5rem 0;
-  }
+  z-index: 5;
+  background-color: ${({ isNavScrolled, theme }) =>
+    isNavScrolled ? theme.colors.primary : 'transparent'};
+  box-shadow: ${({ isNavScrolled, theme }) =>
+    isNavScrolled
+      ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+      : 'none'};
 `;
 
-export const NavList = styled.ul<NavProps>`
+export const NavList = styled.ul<NavListProps>`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -86,7 +92,7 @@ export const NavBtnBox = styled.span`
   height: 2.4rem;
 `;
 
-export const NavBtnInner = styled.span<NavProps>`
+export const NavBtnInner = styled.span<NavListProps>`
   top: 50%;
   background-color: ${({ isNavOpen, theme }) => (isNavOpen ? 'transparent' : theme.colors.white)};
   transform: translateY(-50%);

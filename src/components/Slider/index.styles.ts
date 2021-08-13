@@ -37,6 +37,10 @@ export const ArrowButton = styled.button<ArrowButtonProps>`
       }
     }}
 
+    &:disabled {
+      display: none;
+    }
+
     svg {
       width: 2rem;
       height: 2rem;

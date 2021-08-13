@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   p {
     padding-top: 2rem;
     margin-top: 3rem;
-    border-top: 1px solid ${({ theme }) => theme.colors.lightGrey};
+    border-top: 0.1rem solid ${({ theme }) => theme.colors.lightGrey};
     text-align: center;
     color: ${({ theme }) => theme.colors.lightGrey};
     font-size: 1.6rem;

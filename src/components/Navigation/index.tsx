@@ -1,5 +1,5 @@
 import Container from 'components/Container';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Nav,
   NavWrapper,
@@ -10,12 +10,32 @@ import {
   NavListLink
 } from './index.styles';
 import navLinks from 'data/navLinks';
+import SearchBox from 'components/SearchBox';
 
 const Navigation = (): JSX.Element => {
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        if (!isNavScrolled) {
+          setIsNavScrolled(true);
+        }
+      } else {
+        setIsNavScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isNavScrolled]);
+
   return (
-    <Nav>
+    <Nav isNavScrolled={isNavScrolled}>
       <Container>
         <NavWrapper>
           <NavBtn onClick={() => setIsNavOpen(!isNavOpen)}>
@@ -30,6 +50,7 @@ const Navigation = (): JSX.Element => {
               </li>
             ))}
           </NavList>
+          <SearchBox />
         </NavWrapper>
       </Container>
     </Nav>
