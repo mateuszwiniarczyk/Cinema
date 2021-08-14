@@ -4,7 +4,7 @@ export const List = styled.ul`
   display: flex;
   align-items: center;
   font-size: 1.6rem;
-  color: ${({ theme }) => theme.colors.lightGrey};
+  color: ${({ theme }) => theme.colors.mercuryGrey};
 
   li {
     display: flex;
@@ -14,8 +14,8 @@ export const List = styled.ul`
     font-weight: 500;
 
     &:nth-of-type(2) {
-      border-left: 2px solid ${({ theme }) => theme.colors.lightGrey};
-      border-right: 2px solid ${({ theme }) => theme.colors.lightGrey};
+      border-left: 0.2rem solid ${({ theme }) => theme.colors.mercuryGrey};
+      border-right: 0.2rem solid ${({ theme }) => theme.colors.mercuryGrey};
       margin: 0 1.5rem;
       padding: 0 1.5rem;
       color: ${({ theme }) => theme.colors.gold};
@@ -34,7 +34,7 @@ export const List = styled.ul`
   svg {
     width: 1.8rem;
     height: 1.8rem;
-    fill: ${({ theme }) => theme.colors.lightGrey};
+    fill: ${({ theme }) => theme.colors.mercuryGrey};
 
     ${({ theme }) => theme.mq.sm} {
       width: 2rem;

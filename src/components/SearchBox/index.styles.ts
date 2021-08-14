@@ -120,7 +120,7 @@ export const SearchBtn = styled.button`
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
-  right: 0px;
+  right: 0;
   color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   pointer-events: painted;
