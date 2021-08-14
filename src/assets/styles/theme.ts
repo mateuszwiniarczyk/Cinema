@@ -22,6 +22,7 @@ export const theme = {
     black: '#111111',
     primary: '#1c1d27',
     lightGrey: '#c4c4cf',
+    mercuryGrey: '#e5e5e5',
     grey: '#333333',
     red: '#E50914',
     gold: '#FDB402'

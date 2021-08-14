@@ -26,23 +26,27 @@ type trendingMedia = {
 const Hero = (): JSX.Element => {
   const [trendingMedia, setTrendingMedia] = useState<null | trendingMedia>(null);
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(
         `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`
       )
       .then(({ data: { results } }) => {
+        setIsLoading(false);
         setTrendingMedia(results[0]);
       })
       .catch((error) => {
+        setIsLoading(false);
         setError(error);
       });
   }, []);
 
   return (
     <Wrapper>
-      {trendingMedia ? (
+      {trendingMedia && !isLoading ? (
         <Container>
           <Image src={`https://image.tmdb.org/t/p/w1280/${trendingMedia.backdrop_path}`} alt="" />
           <Content>
@@ -59,7 +63,7 @@ const Hero = (): JSX.Element => {
           </Content>
         </Container>
       ) : (
-        <h2>Loading</h2>
+        <h2>loading</h2>
       )}
       {error ? <span>{error}</span> : null}
     </Wrapper>

@@ -50,13 +50,14 @@ export const Title = styled.h2`
 
 export const Description = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-size: 1.6rem;
   max-width: 60rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.5;
+  font-size: 1.6rem;
+  font-weight: 300;
 
   ${({ theme }) => theme.mq.sm} {
     font-size: 1.8rem;
