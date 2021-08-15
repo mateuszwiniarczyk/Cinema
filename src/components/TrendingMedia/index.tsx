@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Section from 'components/Section';
 import TrendingMediaList from 'components/TrendingMediaList';
+import Loader from 'components/Loader';
 
 type movie = {
   adult: boolean;
@@ -40,8 +41,10 @@ type tvShow = {
 
 const TrendingMedia = (): JSX.Element => {
   const [trendingList, setTrendingList] = useState<(movie | tvShow)[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(
         `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -49,12 +52,16 @@ const TrendingMedia = (): JSX.Element => {
       .then(({ data: { results } }) => {
         const list = results?.filter((media: movie | tvShow) => media.poster_path);
         setTrendingList(list);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <Section title="Cinema Originals">
-      <TrendingMediaList trendingList={trendingList} />
+      {!isLoading ? <TrendingMediaList trendingList={trendingList} /> : <Loader />}
     </Section>
   );
 };

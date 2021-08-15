@@ -55,6 +55,8 @@ const SearchBox = (): JSX.Element => {
   const isMounted = useRef(false);
 
   const getMatchingMedia = debounce(({ inputValue }: UseComboboxStateChange<tvShow | movie>) => {
+    if (!inputValue) return;
+
     axios
       .get(
         `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${inputValue}&page=1`
@@ -90,29 +92,25 @@ const SearchBox = (): JSX.Element => {
       <SearchBtn type="button" className="btn-search">
         <SearchIcon />
       </SearchBtn>
-      <SearchInput
-        type="text"
-        className="input-search"
-        placeholder="Type to Search..."
-        {...getInputProps()}
-      />
+      <SearchInput type="text" placeholder="Type to Search..." {...getInputProps()} />
       <SearchResults {...getMenuProps()}>
-        {isOpen &&
-          matchingMedia.map((item: tvShow | movie, index: number) => {
-            const title = 'title' in item ? item.title : item.name;
+        {isOpen && matchingMedia.length
+          ? matchingMedia.map((item: tvShow | movie, index: number) => {
+              const title = 'title' in item ? item.title : item.name;
 
-            return (
-              <SearchResultsItem
-                key={item.id}
-                {...getItemProps({ item, index })}
-                highlighted={highlightedIndex === index}>
-                <ImageWrapper>
-                  <img src={`https://image.tmdb.org/t/p/w45/${item.poster_path}`} alt="" />
-                </ImageWrapper>
-                <Title>{title}</Title>
-              </SearchResultsItem>
-            );
-          })}
+              return (
+                <SearchResultsItem
+                  key={item.id}
+                  {...getItemProps({ item, index })}
+                  highlighted={highlightedIndex === index}>
+                  <ImageWrapper>
+                    <img src={`https://image.tmdb.org/t/p/w45/${item.poster_path}`} alt={title} />
+                  </ImageWrapper>
+                  <Title>{title}</Title>
+                </SearchResultsItem>
+              );
+            })
+          : null}
       </SearchResults>
     </Wrapper>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type SearchResultsProps = {
-  highlighted: boolean;
+  highlighted?: boolean;
 };
 
 export const Wrapper = styled.div`
@@ -20,7 +20,7 @@ export const SearchResults = styled.ul`
   left: 0;
   right: 0;
   max-height: 50rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: ${({ theme }) => theme.colors.black};
 
   &::-webkit-scrollbar {
@@ -48,6 +48,7 @@ export const SearchResultsItem = styled.li<SearchResultsProps>`
   align-items: center;
   padding: 1.5rem;
   gap: 1rem;
+  color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme, highlighted }) =>
     highlighted ? 'rgba(0,0,0, 0.7)' : theme.colors.black};
   cursor: pointer;
@@ -63,8 +64,8 @@ export const SearchResultsItem = styled.li<SearchResultsProps>`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 4.5rem;
   height: 4.5rem;
+  flex-basis: 4.5rem;
 
   img {
     width: 100%;
@@ -78,10 +79,10 @@ export const Title = styled.span`
   margin-left: 0.5rem;
   font-size: 1.4rem;
   line-height: 1.5;
-  color: ${({ theme }) => theme.colors.white};
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1;
 `;
 
 export const SearchInput = styled.input`
@@ -97,6 +98,7 @@ export const SearchInput = styled.input`
   color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   transition: all 0.5s ease-in-out;
+  overflow: hidden;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.white};

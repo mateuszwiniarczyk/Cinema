@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Section from 'components/Section';
 import PopularTvShowList from 'components/PopularTvShowList';
+import Loader from 'components/Loader';
 
 type tvShow = {
   backdrop_path: string;
@@ -21,8 +22,10 @@ type tvShow = {
 
 const PopularTvShows = (): JSX.Element => {
   const [tvShowList, setTvShowList] = useState<tvShow[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(
         `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
@@ -30,12 +33,16 @@ const PopularTvShows = (): JSX.Element => {
       .then(({ data: { results } }) => {
         const list = results?.filter((media: tvShow) => media.backdrop_path);
         setTvShowList(list);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <Section title="Popular Tv Shows">
-      <PopularTvShowList tvShowList={tvShowList} />
+      {!isLoading ? <PopularTvShowList tvShowList={tvShowList} /> : <Loader />}
     </Section>
   );
 };

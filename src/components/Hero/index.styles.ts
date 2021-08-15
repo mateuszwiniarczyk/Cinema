@@ -44,7 +44,7 @@ export const Title = styled.h2`
   line-height: 1;
 
   ${({ theme }) => theme.mq.sm} {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 `;
 
