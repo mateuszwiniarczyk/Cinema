@@ -39,11 +39,11 @@ type tvShow = {
 type returnedData = {
   isLoading: boolean;
   isError: string;
-  popularMedia: (movie | tvShow)[] | null;
+  popularMedia: (movie | tvShow)[] | [];
 };
 
 const usePopularMedia = (type: string): returnedData => {
-  const [popularMedia, setPopularMedia] = useState<(movie | tvShow)[] | null>(null);
+  const [popularMedia, setPopularMedia] = useState<(movie | tvShow)[] | []>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
 

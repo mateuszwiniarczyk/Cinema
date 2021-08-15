@@ -4,12 +4,29 @@ import PopularTvShowList from 'components/PopularTvShowList';
 import Loader from 'components/Loader';
 import usePopularMedia from 'hooks/usePopularMedia';
 
+type tvShow = {
+  backdrop_path: string;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  media_type: string;
+  name: string;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
+};
+
 const PopularTvShows = (): JSX.Element => {
   const { isLoading, popularMedia } = usePopularMedia('tv');
 
   return (
     <Section title="Popular Tv Shows">
-      {!isLoading ? <PopularTvShowList tvShowList={popularMedia} /> : <Loader />}
+      {!isLoading ? <PopularTvShowList tvShowList={popularMedia as tvShow[] | []} /> : <Loader />}
     </Section>
   );
 };

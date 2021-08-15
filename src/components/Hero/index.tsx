@@ -37,7 +37,7 @@ const Hero = (): JSX.Element => {
     <Wrapper>
       {mainMedia && !isLoading ? (
         <Container>
-          <Image src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`} alt="" />
+          <Image src={`https://image.tmdb.org/t/p/w1280/${mainMedia.backdrop_path}`} alt="" />
           <Content>
             <Title>{mainMedia.title}</Title>
             <DetailsList
