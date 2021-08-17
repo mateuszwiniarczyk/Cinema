@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
 type movie = {
@@ -6,7 +6,6 @@ type movie = {
   backdrop_path: string;
   genre_ids: number[];
   id: number;
-  media_type: string;
   original_language: string;
   original_title: string;
   overview: string;
@@ -24,7 +23,6 @@ type tvShow = {
   first_air_date: string;
   genre_ids: number[];
   id: number;
-  media_type: string;
   name: string;
   origin_country: string[];
   original_language: string;
@@ -46,23 +44,31 @@ const usePopularMedia = (type: string): returnedData => {
   const [popularMedia, setPopularMedia] = useState<(movie | tvShow)[] | []>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
+  const isMounted = useRef(false);
 
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(
-        `https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-      )
+      .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}`)
       .then(({ data: { results } }) => {
         const list = results?.filter((media: tvShow | movie) => media.backdrop_path);
-        setPopularMedia(list);
-        setIsLoading(false);
+        if (isMounted.current) {
+          setPopularMedia(list);
+          setIsLoading(false);
+        }
       })
       .catch((error) => {
         setIsLoading(false);
         setIsError(error);
       });
   }, [type]);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   return { isLoading, isError, popularMedia };
 };

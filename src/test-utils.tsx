@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { theme } from 'assets/styles/theme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -12,7 +12,7 @@ const AllTheProviders: FC = ({ children }) => {
   );
 };
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>): unknown =>
+const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>): RenderResult =>
   render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from '@testing-library/react';

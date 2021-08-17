@@ -6,7 +6,6 @@ describe('<SignIn />', () => {
   it('should display a link to the login page', () => {
     render(<SignIn />);
     const link = screen.getByRole('link', { name: 'Sign Up' });
-
     expect(link).toHaveAttribute('href', '/signup');
   });
 });
