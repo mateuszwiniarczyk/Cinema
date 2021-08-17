@@ -13,6 +13,8 @@ import {
   Wrapper
 } from './index.styles';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
+import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
+import Loader from 'components/Loader';
 
 type movie = {
   adult: boolean;
@@ -52,11 +54,13 @@ type tvShow = {
 const SearchBox = (): JSX.Element => {
   const history = useHistory();
   const [matchingMedia, setMatchingMedia] = useState<(tvShow | movie)[] | []>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const isMounted = useRef(false);
 
   const getMatchingMedia = debounce(({ inputValue }: UseComboboxStateChange<tvShow | movie>) => {
     if (!inputValue) return;
-
+    setIsLoading(true);
     axios
       .get(
         `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${inputValue}&page=1`
@@ -66,6 +70,10 @@ const SearchBox = (): JSX.Element => {
           (item: tvShow | movie) => item.media_type !== 'person' && item.poster_path
         );
         isMounted.current && setMatchingMedia(media);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
       });
   }, 500);
 
@@ -89,28 +97,40 @@ const SearchBox = (): JSX.Element => {
 
   return (
     <Wrapper {...getComboboxProps()}>
-      <SearchBtn type="button" className="btn-search">
-        <SearchIcon />
+      <SearchBtn type="button" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+        {isSearchOpen ? <CloseIcon /> : <SearchIcon />}
       </SearchBtn>
-      <SearchInput type="text" placeholder="Type to Search..." {...getInputProps()} />
+      <SearchInput
+        type="text"
+        placeholder="Type to Search..."
+        {...getInputProps()}
+        isSearchOpen={isSearchOpen}
+      />
       <SearchResults {...getMenuProps()}>
-        {isOpen && matchingMedia.length
-          ? matchingMedia.map((item: tvShow | movie, index: number) => {
-              const title = 'title' in item ? item.title : item.name;
+        {isOpen &&
+          (!isLoading ? (
+            matchingMedia.length ? (
+              matchingMedia.map((item: tvShow | movie, index: number) => {
+                const title = 'title' in item ? item.title : item.name;
 
-              return (
-                <SearchResultsItem
-                  key={item.id}
-                  {...getItemProps({ item, index })}
-                  highlighted={highlightedIndex === index}>
-                  <ImageWrapper>
-                    <img src={`https://image.tmdb.org/t/p/w45/${item.poster_path}`} alt={title} />
-                  </ImageWrapper>
-                  <Title>{title}</Title>
-                </SearchResultsItem>
-              );
-            })
-          : null}
+                return (
+                  <SearchResultsItem
+                    key={item.id}
+                    {...getItemProps({ item, index })}
+                    highlighted={highlightedIndex === index}>
+                    <ImageWrapper>
+                      <img src={`https://image.tmdb.org/t/p/w45/${item.poster_path}`} alt={title} />
+                    </ImageWrapper>
+                    <Title>{title}</Title>
+                  </SearchResultsItem>
+                );
+              })
+            ) : (
+              <SearchResultsItem>No data</SearchResultsItem>
+            )
+          ) : (
+            <Loader />
+          ))}
       </SearchResults>
     </Wrapper>
   );

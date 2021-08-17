@@ -4,6 +4,10 @@ type SearchResultsProps = {
   highlighted?: boolean;
 };
 
+type SearchInputProps = {
+  isSearchOpen: boolean;
+};
+
 export const Wrapper = styled.div`
   display: none;
   position: relative;
@@ -43,26 +47,6 @@ export const SearchResults = styled.ul`
   }
 `;
 
-export const SearchResultsItem = styled.li<SearchResultsProps>`
-  display: flex;
-  align-items: center;
-  padding: 1.5rem;
-  gap: 1rem;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme, highlighted }) =>
-    highlighted ? 'rgba(0,0,0, 0.7)' : theme.colors.black};
-  cursor: pointer;
-  transition: background-color 0.2s linear;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
-  a {
-    display: block;
-  }
-`;
-
 export const ImageWrapper = styled.div`
   height: 4.5rem;
   flex-basis: 4.5rem;
@@ -85,7 +69,7 @@ export const Title = styled.span`
   flex: 1;
 `;
 
-export const SearchInput = styled.input`
+export const SearchInput = styled.input<SearchInputProps>`
   height: 5rem;
   width: 5rem;
   padding: 1rem 4rem 1rem 1rem;
@@ -104,13 +88,16 @@ export const SearchInput = styled.input`
     color: ${({ theme }) => theme.colors.white};
   }
 
-  &:focus {
+  ${({ isSearchOpen, theme }) =>
+    isSearchOpen
+      ? `
     width: 25rem;
     border-radius: 0;
     background-color: transparent;
-    border-color: ${({ theme }) => theme.colors.white};
+    border-color: ${theme.colors.white};
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
-  }
+    `
+      : null}
 `;
 
 export const SearchBtn = styled.button`
@@ -127,17 +114,29 @@ export const SearchBtn = styled.button`
   background-color: transparent;
   pointer-events: painted;
 
-  &:focus ~ ${SearchInput} {
-    width: 25rem;
-    border-radius: 0;
-    background-color: transparent;
-    border-bottom: 0.1rem solid ${({ theme }) => theme.colors.white};
-    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
-  }
-
   svg {
     width: 2rem;
     height: 2rem;
     fill: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const SearchResultsItem = styled.li<SearchResultsProps>`
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme, highlighted }) =>
+    highlighted ? 'rgba(0,0,0, 0.7)' : theme.colors.black};
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  a {
+    display: block;
   }
 `;
