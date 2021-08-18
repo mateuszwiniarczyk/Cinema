@@ -1,3 +1,5 @@
+import MEDIA_TYPES from 'data/mediaTypes';
+
 type movie = {
   adult: boolean;
   backdrop_path: string | null;
@@ -41,7 +43,7 @@ const matchingMedia: (tvShow | movie)[] = [
     id: 436969,
     original_language: 'en',
     original_title: 'The Suicide Squad',
-    media_type: 'movie',
+    media_type: MEDIA_TYPES.MOVIE,
     overview:
       'Supervillains Harley Quinn, Bloodsport, Peacemaker and a collection of nutty cons at Belle Reve prison join the super-secret, super-shady Task Force X as they are dropped off at the remote, enemy-infused island of Corto Maltese.',
     popularity: 9101.854,
@@ -60,7 +62,7 @@ const matchingMedia: (tvShow | movie)[] = [
     id: 451048,
     original_language: 'en',
     original_title: 'Jungle Cruise',
-    media_type: 'movie',
+    media_type: MEDIA_TYPES.MOVIE,
     overview:
       'Dr. Lily Houghton enlists the aid of wisecracking skipper Frank Wolff to take her down the Amazon in his dilapidated boat. Together, they search for an ancient tree that holds the power to heal – a discovery that will change the future of medicine.',
     popularity: 7760.301,
@@ -80,7 +82,7 @@ const matchingMedia: (tvShow | movie)[] = [
     origin_country: ['DE'],
     original_language: 'de',
     original_name: 'Promi Big Brother',
-    media_type: 'tv',
+    media_type: MEDIA_TYPES.TV,
     overview: '',
     popularity: 1668.127,
     poster_path: null,
@@ -96,7 +98,7 @@ const matchingMedia: (tvShow | movie)[] = [
     origin_country: ['US'],
     original_language: 'en',
     original_name: 'What If...?',
-    media_type: 'tv',
+    media_type: MEDIA_TYPES.TV,
     overview:
       'Taking inspiration from the comic books of the same name, each episode explores a pivotal moment from the Marvel Cinematic Universe and turns it on its head, leading the audience into uncharted territory.',
     popularity: 1372.582,

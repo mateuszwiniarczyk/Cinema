@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type movie = {
   adult: boolean;
@@ -34,7 +35,7 @@ const PopularMovieList = ({ movieList }: Props): JSX.Element => (
               name={title}
               image={backdrop_path}
               genreId={genre_ids[0]}
-              mediaType="movie"
+              mediaType={MEDIA_TYPES.MOVIE}
             />
           </SwiperSlide>
         ))}

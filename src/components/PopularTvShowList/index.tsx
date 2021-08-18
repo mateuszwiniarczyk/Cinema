@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type tvShow = {
   backdrop_path: string;
@@ -34,7 +35,7 @@ const PopularTvShowList = ({ tvShowList }: Props): JSX.Element => (
               name={name}
               image={backdrop_path}
               genreId={genre_ids[0]}
-              mediaType="tv"
+              mediaType={MEDIA_TYPES.TV}
             />
           </SwiperSlide>
         ))}

@@ -3,6 +3,7 @@ import Section from 'components/Section';
 import PopularMovieList from 'components/PopularMovieList';
 import Loader from 'components/Loader';
 import usePopularMedia from 'hooks/usePopularMedia';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type movie = {
   adult: boolean;
@@ -21,7 +22,7 @@ type movie = {
 };
 
 const PopularMovies = (): JSX.Element => {
-  const { isLoading, popularMedia } = usePopularMedia('movie');
+  const { isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE);
 
   return (
     <Section title="Popular Movies">

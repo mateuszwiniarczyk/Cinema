@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type movie = {
   adult: boolean;
@@ -60,7 +61,7 @@ const TrendingMediaList = ({ trendingList }: Props): JSX.Element => (
               <MediaBox
                 id={id}
                 image={poster_path}
-                mediaType="all"
+                mediaType={MEDIA_TYPES.ALL}
                 link={media_type}
                 name={title}
               />

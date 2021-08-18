@@ -3,10 +3,11 @@ import Section from 'components/Section';
 import TrendingMediaList from 'components/TrendingMediaList';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 const TrendingMedia = (): JSX.Element => {
   const { isLoading, trendingMedia: trendingList } = useTrendingMedia({
-    type: 'all',
+    type: MEDIA_TYPES.ALL,
     timeRange: 'day'
   });
 

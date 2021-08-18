@@ -1,4 +1,4 @@
-enum tvShowGenres {
+enum TV_SHOW_GENRES {
   Animation = 16,
   Drama = 18,
   Comedy = 35,
@@ -16,4 +16,4 @@ enum tvShowGenres {
   Talk = 10767
 }
 
-export default tvShowGenres;
+export default TV_SHOW_GENRES;

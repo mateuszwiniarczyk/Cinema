@@ -1,4 +1,4 @@
-enum movieGenres {
+enum MOVIE_GENRES {
   Adventure = 12,
   Fantasy = 14,
   Animation = 16,
@@ -20,4 +20,4 @@ enum movieGenres {
   'TV Movie' = 10770
 }
 
-export default movieGenres;
+export default MOVIE_GENRES;

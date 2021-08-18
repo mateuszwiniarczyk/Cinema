@@ -6,6 +6,7 @@ import DetailsList from 'components/DetailsList';
 import { Link } from 'react-router-dom';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import Loader from 'components/Loader';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type movie = {
   adult: boolean;
@@ -27,7 +28,7 @@ type movie = {
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({
-    type: 'movie',
+    type: MEDIA_TYPES.MOVIE,
     timeRange: 'week'
   });
 

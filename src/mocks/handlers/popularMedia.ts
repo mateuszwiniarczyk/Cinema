@@ -1,6 +1,7 @@
 import { rest } from 'msw';
 import popularMovies from 'mocks/data/popularMovies';
 import popularTvShows from 'mocks/data/popularTvShows';
+import MEDIA_TYPES from 'data/mediaTypes';
 
 type movie = {
   adult: boolean;
@@ -42,10 +43,10 @@ export const popularMedia = [
     let results: (movie | tvShow)[] | [];
 
     switch (type) {
-      case 'movie':
+      case MEDIA_TYPES.MOVIE:
         results = popularMovies;
         break;
-      case 'tv':
+      case MEDIA_TYPES.TV:
         results = popularTvShows;
         break;
       default:
