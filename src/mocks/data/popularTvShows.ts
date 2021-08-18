@@ -1,4 +1,20 @@
-const popularTvShows = [
+type tvShow = {
+  backdrop_path: string | null;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  name: string;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  vote_average: number;
+  vote_count: number;
+};
+
+const popularTvShows: tvShow[] = [
   {
     backdrop_path: null,
     first_air_date: '2013-09-13',
