@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
+import Loader from 'components/Loader';
+import usePopularMedia from 'hooks/usePopularMedia';
 import MEDIA_TYPES from 'data/mediaTypes';
 
 type tvShow = {
@@ -20,30 +22,35 @@ type tvShow = {
   vote_count: number;
 };
 
-type Props = {
-  tvShowList: tvShow[] | null;
-};
+const PopularTvShowList = (): JSX.Element => {
+  const { isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.TV) as {
+    isLoading: boolean;
+    popularMedia: tvShow[] | [];
+  };
 
-const PopularTvShowList = ({ tvShowList }: Props): JSX.Element => (
-  <>
-    {tvShowList?.length ? (
-      <Slider arrowBtnId="tv">
-        {tvShowList.map(({ id, name, backdrop_path, genre_ids }) => (
-          <SwiperSlide key={id}>
-            <MediaBox
-              id={id}
-              name={name}
-              image={backdrop_path}
-              genreId={genre_ids[0]}
-              mediaType={MEDIA_TYPES.TV}
-            />
-          </SwiperSlide>
-        ))}
-      </Slider>
-    ) : (
-      <h2>No data</h2>
-    )}
-  </>
-);
+  if (isLoading) return <Loader />;
+
+  return (
+    <>
+      {popularMedia.length ? (
+        <Slider arrowBtnId="tv">
+          {popularMedia.map(({ id, name, backdrop_path, genre_ids }) => (
+            <SwiperSlide key={id}>
+              <MediaBox
+                id={id}
+                name={name}
+                image={backdrop_path}
+                genreId={genre_ids[0]}
+                mediaType={MEDIA_TYPES.TV}
+              />
+            </SwiperSlide>
+          ))}
+        </Slider>
+      ) : (
+        <h2>No data</h2>
+      )}
+    </>
+  );
+};
 
 export default PopularTvShowList;

@@ -2,7 +2,9 @@ import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
+import usePopularMedia from 'hooks/usePopularMedia';
 import MEDIA_TYPES from 'data/mediaTypes';
+import Loader from 'components/Loader';
 
 type movie = {
   adult: boolean;
@@ -20,30 +22,35 @@ type movie = {
   vote_average: number;
 };
 
-type Props = {
-  movieList: movie[] | [];
-};
+const PopularMovieList = (): JSX.Element => {
+  const { isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE) as {
+    isLoading: boolean;
+    popularMedia: movie[] | [];
+  };
 
-const PopularMovieList = ({ movieList }: Props): JSX.Element => (
-  <>
-    {movieList.length ? (
-      <Slider arrowBtnId="movie">
-        {movieList.map(({ id, title, backdrop_path, genre_ids }) => (
-          <SwiperSlide key={id}>
-            <MediaBox
-              id={id}
-              name={title}
-              image={backdrop_path}
-              genreId={genre_ids[0]}
-              mediaType={MEDIA_TYPES.MOVIE}
-            />
-          </SwiperSlide>
-        ))}
-      </Slider>
-    ) : (
-      <h2>No data</h2>
-    )}
-  </>
-);
+  if (isLoading) return <Loader />;
+
+  return (
+    <>
+      {popularMedia.length ? (
+        <Slider arrowBtnId="movie">
+          {popularMedia.map(({ id, title, backdrop_path, genre_ids }) => (
+            <SwiperSlide key={id}>
+              <MediaBox
+                id={id}
+                name={title}
+                image={backdrop_path}
+                genreId={genre_ids[0]}
+                mediaType={MEDIA_TYPES.MOVIE}
+              />
+            </SwiperSlide>
+          ))}
+        </Slider>
+      ) : (
+        <h2>No data</h2>
+      )}
+    </>
+  );
+};
 
 export default PopularMovieList;
