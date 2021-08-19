@@ -44,11 +44,11 @@ type tvShow = {
 type returnedData = {
   isLoading: boolean;
   isError: string;
-  trendingMedia: (movie | tvShow)[] | null;
+  trendingMedia: (movie | tvShow)[] | [];
 };
 
 const useTrendingMedia = ({ type, timeRange }: Props): returnedData => {
-  const [trendingMedia, setTrendingMedia] = useState<(movie | tvShow)[] | null>(null);
+  const [trendingMedia, setTrendingMedia] = useState<(movie | tvShow)[] | []>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
 
