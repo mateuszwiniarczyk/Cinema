@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-type props = { type: string; timeRange: string };
+type Props = {
+  readonly type: string;
+  readonly timeRange: string;
+};
 
 type movie = {
   adult: boolean;
@@ -44,7 +47,7 @@ type returnedData = {
   trendingMedia: (movie | tvShow)[] | null;
 };
 
-const useTrendingMedia = ({ type, timeRange }: props): returnedData => {
+const useTrendingMedia = ({ type, timeRange }: Props): returnedData => {
   const [trendingMedia, setTrendingMedia] = useState<(movie | tvShow)[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');

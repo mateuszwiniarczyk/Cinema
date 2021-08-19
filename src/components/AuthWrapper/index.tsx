@@ -1,10 +1,10 @@
 import React from 'react';
 import { Wrapper } from './index.styles';
 
-type props = {
+type Props = {
   readonly children: React.ReactChild;
 };
 
-const AuthWrapper = ({ children }: props): JSX.Element => <Wrapper>{children}</Wrapper>;
+const AuthWrapper = ({ children }: Props): JSX.Element => <Wrapper>{children}</Wrapper>;
 
 export default AuthWrapper;

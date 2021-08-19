@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 type SearchResultsProps = {
-  highlighted?: boolean;
+  readonly highlighted?: boolean;
 };
 
 type SearchInputProps = {
-  isSearchOpen: boolean;
+  readonly isSearchOpen: boolean;
 };
 
 export const Wrapper = styled.div`

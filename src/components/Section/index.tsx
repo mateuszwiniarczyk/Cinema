@@ -3,8 +3,8 @@ import Container from 'components/Container';
 import { Wrapper, Title } from './index.styles';
 
 type Props = {
-  children: React.ReactChild;
-  title: string;
+  readonly children: React.ReactChild;
+  readonly title: string;
 };
 
 const Section = ({ children, title }: Props): JSX.Element => {

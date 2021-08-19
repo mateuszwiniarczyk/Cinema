@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-interface NavListProps {
+type NavListProps = {
   readonly isNavOpen: boolean;
-}
+};
 
 export const NavList = styled.ul<NavListProps>`
   position: fixed;

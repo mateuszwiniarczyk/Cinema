@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-interface NavProps {
+type NavProps = {
   readonly isNavScrolled: boolean;
-}
+};
 
 export const Nav = styled.nav<NavProps>`
   position: fixed;

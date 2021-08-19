@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 type ArrowButtonProps = {
-  right?: boolean;
+  readonly right?: boolean;
 };
 
 export const ArrowButton = styled.button<ArrowButtonProps>`

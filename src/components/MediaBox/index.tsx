@@ -5,19 +5,19 @@ import TV_SHOW_GENRES from 'data/genres/tvShow';
 import MEDIA_TYPES from 'data/mediaTypes';
 
 type LimitedMediaProps = {
-  mediaType: MEDIA_TYPES.TV | MEDIA_TYPES.MOVIE;
-  id: number;
-  name: string;
-  image: string;
-  genreId: number | undefined;
+  readonly mediaType: MEDIA_TYPES.TV | MEDIA_TYPES.MOVIE;
+  readonly id: number;
+  readonly name: string;
+  readonly image: string;
+  readonly genreId: number | undefined;
 };
 
 type AllMediaProps = {
-  id: number;
-  mediaType: MEDIA_TYPES.ALL;
-  link: string;
-  image: string;
-  name: string;
+  readonly id: number;
+  readonly mediaType: MEDIA_TYPES.ALL;
+  readonly link: string;
+  readonly image: string;
+  readonly name: string;
 };
 
 type Props = LimitedMediaProps | AllMediaProps;

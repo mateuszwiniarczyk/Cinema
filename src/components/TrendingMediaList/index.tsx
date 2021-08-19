@@ -40,7 +40,7 @@ type tvShow = {
 };
 
 type Props = {
-  trendingList: (tvShow | movie)[] | null;
+  readonly trendingList: (tvShow | movie)[] | null;
 };
 
 const TrendingMediaList = ({ trendingList }: Props): JSX.Element => (

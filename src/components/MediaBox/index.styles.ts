@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MEDIA_TYPES from 'data/mediaTypes';
 
 type ImageProps = {
-  mediaType: MEDIA_TYPES.ALL | MEDIA_TYPES.MOVIE | MEDIA_TYPES.TV;
+  readonly mediaType: MEDIA_TYPES.ALL | MEDIA_TYPES.MOVIE | MEDIA_TYPES.TV;
 };
 
 export const Wrapper = styled(Link)`

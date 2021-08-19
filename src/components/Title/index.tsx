@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type Props = {
-  size?: string;
+  readonly size?: string;
 };
 
 const Title = styled.h2`

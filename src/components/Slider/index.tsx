@@ -8,8 +8,8 @@ import { ReactComponent as RightArrow } from 'assets/icons/arrow-right.svg';
 import { ReactComponent as LeftArrow } from 'assets/icons/arrow-left.svg';
 
 type Props = {
-  children: React.ReactNode;
-  arrowBtnId: string;
+  readonly children: React.ReactNode;
+  readonly arrowBtnId: string;
 };
 
 const breakpoints = {
