@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import Loader from 'components/Loader';
 import MEDIA_TYPES from 'data/mediaTypes';
+import Alert from 'components/Alert';
 
 type movie = {
   adult: boolean;
@@ -36,26 +37,29 @@ const Hero = (): JSX.Element => {
 
   return (
     <Wrapper>
-      {mainMedia && !isLoading ? (
-        <Container>
-          <Image src={`https://image.tmdb.org/t/p/w1280/${mainMedia.backdrop_path}`} alt="" />
-          <Content>
-            <Title>{mainMedia.title}</Title>
-            <DetailsList
-              year={mainMedia.release_date}
-              type={mainMedia.media_type}
-              rating={mainMedia.vote_average}
-            />
-            <Description>{mainMedia.overview}</Description>
-            <Button as={Link} to={`/${mainMedia.media_type}/${mainMedia.id}`}>
-              More info
-            </Button>
-          </Content>
-        </Container>
-      ) : (
-        <Loader />
-      )}
-      {isError ? <span>{isError}</span> : null}
+      <Container>
+        {mainMedia && !isLoading ? (
+          <>
+            <Image src={`https://image.tmdb.org/t/p/w1280/${mainMedia.backdrop_path}`} alt="" />
+            <Content>
+              <Title>{mainMedia.title}</Title>
+              <DetailsList
+                year={mainMedia.release_date}
+                type={mainMedia.media_type}
+                rating={mainMedia.vote_average}
+              />
+              <Description>{mainMedia.overview}</Description>
+              <Button as={Link} to={`/${mainMedia.media_type}/${mainMedia.id}`}>
+                More info
+              </Button>
+            </Content>
+          </>
+        ) : isError ? (
+          <Alert type="error" text={isError} />
+        ) : (
+          <Loader />
+        )}
+      </Container>
     </Wrapper>
   );
 };

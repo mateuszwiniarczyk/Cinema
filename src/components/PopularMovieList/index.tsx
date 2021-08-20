@@ -5,6 +5,7 @@ import MediaBox from 'components/MediaBox';
 import usePopularMedia from 'hooks/usePopularMedia';
 import MEDIA_TYPES from 'data/mediaTypes';
 import Loader from 'components/Loader';
+import Alert from 'components/Alert';
 
 type movie = {
   adult: boolean;
@@ -23,12 +24,15 @@ type movie = {
 };
 
 const PopularMovieList = (): JSX.Element => {
-  const { isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE) as {
+    isError: string;
     isLoading: boolean;
     popularMedia: movie[] | [];
   };
 
   if (isLoading) return <Loader />;
+
+  if (isError) return <Alert type="error" text={isError} />;
 
   return (
     <>

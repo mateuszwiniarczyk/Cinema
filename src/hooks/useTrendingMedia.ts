@@ -53,19 +53,22 @@ const useTrendingMedia = ({ type, timeRange }: Props): returnedData => {
   const [isError, setIsError] = useState('');
 
   useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(
-        `https://api.themoviedb.org/3/trending/${type}/${timeRange}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      )
-      .then(({ data: { results } }) => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const {
+          data: { results }
+        } = await axios.get(
+          `https://api.themoviedb.org/3/trending/${type}/${timeRange}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+        );
+
         setIsLoading(false);
         setTrendingMedia(results);
-      })
-      .catch((error) => {
+      } catch (error) {
         setIsLoading(false);
-        setIsError(error);
-      });
+        setIsError(error.message);
+      }
+    })();
   }, [type, timeRange]);
 
   return { isLoading, isError, trendingMedia };

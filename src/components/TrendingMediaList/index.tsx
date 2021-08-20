@@ -5,14 +5,17 @@ import MediaBox from 'components/MediaBox';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import MEDIA_TYPES from 'data/mediaTypes';
+import Alert from 'components/Alert';
 
 const TrendingMediaList = (): JSX.Element => {
-  const { isLoading, trendingMedia } = useTrendingMedia({
+  const { isError, isLoading, trendingMedia } = useTrendingMedia({
     type: MEDIA_TYPES.ALL,
     timeRange: 'day'
   });
 
   if (isLoading) return <Loader />;
+
+  if (isError) return <Alert type="error" text={isError} />;
 
   return (
     <>

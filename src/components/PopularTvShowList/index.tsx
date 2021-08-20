@@ -5,6 +5,7 @@ import MediaBox from 'components/MediaBox';
 import Loader from 'components/Loader';
 import usePopularMedia from 'hooks/usePopularMedia';
 import MEDIA_TYPES from 'data/mediaTypes';
+import Alert from 'components/Alert';
 
 type tvShow = {
   backdrop_path: string;
@@ -23,12 +24,15 @@ type tvShow = {
 };
 
 const PopularTvShowList = (): JSX.Element => {
-  const { isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.TV) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.TV) as {
     isLoading: boolean;
     popularMedia: tvShow[] | [];
+    isError: string;
   };
 
   if (isLoading) return <Loader />;
+
+  if (isError) return <Alert type="error" text={isError} />;
 
   return (
     <>

@@ -47,20 +47,26 @@ const usePopularMedia = (type: string): returnedData => {
   const isMounted = useRef(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}`)
-      .then(({ data: { results } }) => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const {
+          data: { results }
+        } = await axios.get(
+          `https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}`
+        );
+
         const list = results?.filter((media: tvShow | movie) => media.backdrop_path);
+
         if (isMounted.current) {
           setPopularMedia(list);
           setIsLoading(false);
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         setIsLoading(false);
-        setIsError(error);
-      });
+        setIsError(error.message);
+      }
+    })();
   }, [type]);
 
   useEffect(() => {

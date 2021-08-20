@@ -25,7 +25,8 @@ export const theme = {
     mercuryGrey: '#e5e5e5',
     grey: '#333333',
     red: '#E50914',
-    gold: '#FDB402'
+    gold: '#FDB402',
+    error: '#FF8383;'
   },
 
   mq: Object.keys(breakpoints).reduce((acc: MQ, breakpoint) => {
