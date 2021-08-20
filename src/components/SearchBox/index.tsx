@@ -75,8 +75,10 @@ const SearchBox = (): JSX.Element => {
           (item: tvShow | movie) => item.media_type !== 'person' && item.poster_path
         );
 
-        isMounted.current && setMatchingMedia(media);
-        setIsLoading(false);
+        if (isMounted.current) {
+          setMatchingMedia(media);
+          setIsLoading(false);
+        }
       } catch (error) {
         setIsLoading(false);
         setIsError(error.message);
