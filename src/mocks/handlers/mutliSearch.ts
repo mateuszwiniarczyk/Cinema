@@ -49,7 +49,7 @@ export const mutliSearch = [
         return title.includes(query);
       });
     } else {
-      results = [];
+      return res(ctx.json({ errors: ['query must be provided'] }));
     }
 
     return res(
