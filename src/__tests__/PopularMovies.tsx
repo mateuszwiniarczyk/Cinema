@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, act } from 'test-utils';
 import PopularMovies from 'components/PopularMovies';
 

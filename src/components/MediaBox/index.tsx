@@ -1,4 +1,3 @@
-import React from 'react';
 import { Wrapper, Image, Name, Genre } from './index.styles';
 import MOVIE_GENRES from 'data/genres/movie';
 import TV_SHOW_GENRES from 'data/genres/tvShow';

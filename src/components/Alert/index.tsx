@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heading, Wrapper } from './index.styles';
 
 type Props = {

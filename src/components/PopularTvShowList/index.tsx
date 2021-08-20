@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';

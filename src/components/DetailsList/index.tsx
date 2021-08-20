@@ -1,4 +1,3 @@
-import React from 'react';
 import { List } from './index.styles';
 import { ReactComponent as YearIcon } from 'assets/icons/year.svg';
 import { ReactComponent as RatingIcon } from 'assets/icons/rating.svg';

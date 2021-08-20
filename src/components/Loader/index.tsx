@@ -1,4 +1,3 @@
-import React from 'react';
 import { Wrapper } from './index.styles';
 import { ReactComponent as LoaderIcon } from 'assets/icons/loader.svg';
 

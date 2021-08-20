@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavBtn, NavBtnBox, NavBtnInner, NavList, NavListLink } from './index.styles';
 import navLinks from 'data/navLinks';
 

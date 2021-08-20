@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthTemplate from 'components/templates/AuthTemplate';
 import SignUpForm from 'components/SignUpForm';
 import AuthWrapper from 'components/AuthWrapper';

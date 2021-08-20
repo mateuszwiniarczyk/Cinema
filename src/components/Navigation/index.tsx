@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Nav, NavWrapper } from './index.styles';
 import Container from 'components/Container';
 import SearchBox from 'components/SearchBox';

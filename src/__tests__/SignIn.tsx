@@ -1,4 +1,3 @@
-import React from 'react';
 import SignIn from 'pages/SignIn';
 import { render, screen } from 'test-utils';
 

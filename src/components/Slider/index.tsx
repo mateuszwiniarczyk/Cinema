@@ -1,4 +1,3 @@
-import React from 'react';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
 import 'swiper/swiper.min.css';

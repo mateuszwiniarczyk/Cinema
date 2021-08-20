@@ -1,4 +1,3 @@
-import React from 'react';
 import { Content, Image, Wrapper, Title, Description } from './index.styles';
 import Container from 'components/Container';
 import Button from 'components/Button';
