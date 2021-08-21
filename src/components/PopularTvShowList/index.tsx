@@ -3,29 +3,13 @@ import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
 import Loader from 'components/Loader';
 import usePopularMedia from 'hooks/usePopularMedia';
-import MEDIA_TYPES from 'data/mediaTypes';
 import Alert from 'components/Alert';
-
-type tvShow = {
-  backdrop_path: string;
-  first_air_date: string;
-  genre_ids: number[];
-  id: number;
-  name: string;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-};
+import { FilteredPopularTvShow, MediaTypes } from 'types';
 
 const PopularTvShowList = (): JSX.Element => {
-  const { isError, isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.TV) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Tv) as {
     isLoading: boolean;
-    popularMedia: tvShow[] | [];
+    popularMedia: FilteredPopularTvShow[] | [];
     isError: string;
   };
 
@@ -44,7 +28,7 @@ const PopularTvShowList = (): JSX.Element => {
                 name={name}
                 image={backdrop_path}
                 genreId={genre_ids[0]}
-                mediaType={MEDIA_TYPES.TV}
+                mediaType={MediaTypes.Tv}
               />
             </SwiperSlide>
           ))}

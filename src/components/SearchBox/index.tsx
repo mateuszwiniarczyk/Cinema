@@ -16,75 +16,45 @@ import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
-
-type movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  media_type: string;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
-
-type tvShow = {
-  backdrop_path: string;
-  first_air_date: string;
-  genre_ids: number[];
-  id: number;
-  media_type: string;
-  name: string;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-};
+import { TrendingTvShow, TrendingMovie } from 'types';
 
 const SearchBox = (): JSX.Element => {
   const history = useHistory();
-  const [matchingMedia, setMatchingMedia] = useState<(tvShow | movie)[] | []>([]);
+  const [matchingMedia, setMatchingMedia] = useState<(TrendingTvShow | TrendingMovie)[] | []>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const isMounted = useRef(false);
 
-  const getMatchingMedia = debounce(({ inputValue }: UseComboboxStateChange<tvShow | movie>) => {
-    (async () => {
-      if (!inputValue) return;
-      setIsLoading(true);
-      try {
-        const {
-          data: { results }
-        } = await axios.get(
-          `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${inputValue}&page=1`
-        );
+  const getMatchingMedia = debounce(
+    ({ inputValue }: UseComboboxStateChange<TrendingTvShow | TrendingMovie>) => {
+      (async () => {
+        if (!inputValue) return;
+        setIsLoading(true);
+        try {
+          const {
+            data: { results }
+          } = await axios.get(
+            `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${inputValue}&page=1`
+          );
 
-        const media = results.filter(
-          (item: tvShow | movie) => item.media_type !== 'person' && item.poster_path
-        );
+          const media = results.filter(
+            (item: TrendingTvShow | TrendingMovie) =>
+              item.media_type !== 'person' && item.poster_path
+          );
 
-        if (isMounted.current) {
-          setMatchingMedia(media);
+          if (isMounted.current) {
+            setMatchingMedia(media);
+            setIsLoading(false);
+          }
+        } catch (error) {
           setIsLoading(false);
+          setIsError(error.message);
         }
-      } catch (error) {
-        setIsLoading(false);
-        setIsError(error.message);
-      }
-    })();
-  }, 500);
+      })();
+    },
+    500
+  );
 
   const { isOpen, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps } =
     useCombobox({
@@ -123,7 +93,7 @@ const SearchBox = (): JSX.Element => {
           (isLoading ? (
             <Loader />
           ) : matchingMedia.length ? (
-            matchingMedia.map((item: tvShow | movie, index: number) => {
+            matchingMedia.map((item: TrendingTvShow | TrendingMovie, index: number) => {
               const title = 'title' in item ? item.title : item.name;
 
               return (

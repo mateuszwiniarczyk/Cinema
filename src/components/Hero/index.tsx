@@ -5,34 +5,16 @@ import DetailsList from 'components/DetailsList';
 import { Link } from 'react-router-dom';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import Loader from 'components/Loader';
-import MEDIA_TYPES from 'data/mediaTypes';
 import Alert from 'components/Alert';
-
-type movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  media_type: string;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
+import { MediaTypes, TrendingMovie } from 'types';
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({
-    type: MEDIA_TYPES.MOVIE,
+    type: MediaTypes.Movie,
     timeRange: 'week'
   });
 
-  const mainMedia = trendingMedia?.length ? (trendingMedia[0] as movie) : null;
+  const mainMedia = trendingMedia?.length ? (trendingMedia[0] as TrendingMovie) : null;
 
   return (
     <Wrapper>

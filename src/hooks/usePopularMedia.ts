@@ -1,47 +1,17 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-
-type movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
-
-type tvShow = {
-  backdrop_path: string;
-  first_air_date: string;
-  genre_ids: number[];
-  id: number;
-  name: string;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-};
+import { PopularMovie, PopularTvShow, FilteredPopularMovie, FilteredPopularTvShow } from 'types';
 
 type returnedData = {
   isLoading: boolean;
   isError: string;
-  popularMedia: (movie | tvShow)[] | [];
+  popularMedia: (FilteredPopularMovie | FilteredPopularTvShow)[] | [];
 };
 
 const usePopularMedia = (type: string): returnedData => {
-  const [popularMedia, setPopularMedia] = useState<(movie | tvShow)[] | []>([]);
+  const [popularMedia, setPopularMedia] = useState<
+    (FilteredPopularMovie | FilteredPopularTvShow)[] | []
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
   const isMounted = useRef(false);
@@ -56,7 +26,9 @@ const usePopularMedia = (type: string): returnedData => {
           `https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}`
         );
 
-        const list = results?.filter((media: tvShow | movie) => media.backdrop_path);
+        const list = results?.filter(
+          (media: PopularTvShow | PopularMovie) => media.backdrop_path && media.poster_path
+        );
 
         if (isMounted.current) {
           setPopularMedia(list);

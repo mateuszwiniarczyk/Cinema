@@ -2,31 +2,24 @@ import Slider from 'components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaBox from 'components/MediaBox';
 import usePopularMedia from 'hooks/usePopularMedia';
-import MEDIA_TYPES from 'data/mediaTypes';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
+import { PopularMovie, MediaTypes } from 'types';
 
-type movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-};
+type Override<T1, T2> = Omit<T1, keyof T2> & T2;
+
+type FilteredMovie = Override<
+  PopularMovie,
+  {
+    backdrop_path: string;
+  }
+>;
 
 const PopularMovieList = (): JSX.Element => {
-  const { isError, isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Movie) as {
     isError: string;
     isLoading: boolean;
-    popularMedia: movie[] | [];
+    popularMedia: FilteredMovie[] | [];
   };
 
   if (isLoading) return <Loader />;
@@ -44,7 +37,7 @@ const PopularMovieList = (): JSX.Element => {
                 name={title}
                 image={backdrop_path}
                 genreId={genre_ids[0]}
-                mediaType={MEDIA_TYPES.MOVIE}
+                mediaType={MediaTypes.Movie}
               />
             </SwiperSlide>
           ))}

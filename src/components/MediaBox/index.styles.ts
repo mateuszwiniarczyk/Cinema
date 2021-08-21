@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import MEDIA_TYPES from 'data/mediaTypes';
+import { MediaTypes } from 'types';
 
 type ImageProps = {
-  readonly mediaType: MEDIA_TYPES.ALL | MEDIA_TYPES.MOVIE | MEDIA_TYPES.TV;
+  readonly mediaType: MediaTypes.All | MediaTypes.Movie | MediaTypes.Tv;
 };
 
 export const Wrapper = styled(Link)`
@@ -14,7 +14,7 @@ export const Wrapper = styled(Link)`
 export const Image = styled.img<ImageProps>`
   width: 100%;
   height: 100%;
-  aspect-ratio: ${({ mediaType }) => (mediaType === MEDIA_TYPES.ALL ? 9 / 16 : 16 / 9)};
+  aspect-ratio: ${({ mediaType }) => (mediaType === MediaTypes.All ? 9 / 16 : 16 / 9)};
   border-radius: 0.5rem;
 `;
 

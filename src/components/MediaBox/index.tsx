@@ -1,10 +1,10 @@
 import { Wrapper, Image, Name, Genre } from './index.styles';
 import MOVIE_GENRES from 'data/genres/movie';
 import TV_SHOW_GENRES from 'data/genres/tvShow';
-import MEDIA_TYPES from 'data/mediaTypes';
+import { MediaTypes } from 'types';
 
 type LimitedMediaProps = {
-  readonly mediaType: MEDIA_TYPES.TV | MEDIA_TYPES.MOVIE;
+  readonly mediaType: MediaTypes.Tv | MediaTypes.Movie;
   readonly id: number;
   readonly name: string;
   readonly image: string;
@@ -13,7 +13,7 @@ type LimitedMediaProps = {
 
 type AllMediaProps = {
   readonly id: number;
-  readonly mediaType: MEDIA_TYPES.ALL;
+  readonly mediaType: MediaTypes.All;
   readonly link: string;
   readonly image: string;
   readonly name: string;
@@ -26,9 +26,9 @@ const MediaBox = (props: Props): JSX.Element => {
   let genreName;
   const { id, image, mediaType, name } = props;
 
-  if (props.mediaType !== MEDIA_TYPES.ALL) {
+  if (props.mediaType !== MediaTypes.All) {
     const { genreId } = props;
-    const genres = mediaType === MEDIA_TYPES.MOVIE ? MOVIE_GENRES : TV_SHOW_GENRES;
+    const genres = mediaType === MediaTypes.Movie ? MOVIE_GENRES : TV_SHOW_GENRES;
     genreName = genreId ? genres[genreId] : 'No data';
     type = mediaType;
   } else {
@@ -44,7 +44,7 @@ const MediaBox = (props: Props): JSX.Element => {
         mediaType={mediaType}
         loading="lazy"
       />
-      {props.mediaType !== MEDIA_TYPES.ALL ? (
+      {props.mediaType !== MediaTypes.All ? (
         <>
           <Name>{name}</Name>
           <Genre>{genreName}</Genre>

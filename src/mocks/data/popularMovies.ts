@@ -1,21 +1,6 @@
-type movie = {
-  adult: boolean;
-  backdrop_path: string | null;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string | null;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
+import { PopularMovie } from 'types';
 
-const popularMovies: movie[] = [
+const popularMovies: PopularMovie[] = [
   {
     adult: false,
     backdrop_path: '/jlGmlFOcfo8n5tURmhC7YVd4Iyy.jpg',
@@ -30,8 +15,7 @@ const popularMovies: movie[] = [
     release_date: '2021-07-28',
     title: 'The Suicide Squad',
     video: false,
-    vote_average: 8.1,
-    vote_count: 2286
+    vote_average: 8.1
   },
   {
     adult: false,
@@ -47,8 +31,7 @@ const popularMovies: movie[] = [
     release_date: '2021-07-28',
     title: 'Jungle Cruise',
     video: false,
-    vote_average: 8,
-    vote_count: 1699
+    vote_average: 8
   }
 ];
 
