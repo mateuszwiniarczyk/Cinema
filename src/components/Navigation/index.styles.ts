@@ -20,7 +20,7 @@ export const Nav = styled.nav<NavProps>`
   touch-action: none;
 `;
 
-export const NavWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;

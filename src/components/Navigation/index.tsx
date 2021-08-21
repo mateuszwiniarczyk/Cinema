@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Nav, NavWrapper } from './index.styles';
+import { Nav, Wrapper } from './index.styles';
 import Container from 'components/Container';
 import SearchBox from 'components/SearchBox';
 import NavigationList from 'components/NavigationList';
@@ -28,10 +28,10 @@ const Navigation = (): JSX.Element => {
   return (
     <Nav isNavScrolled={isNavScrolled}>
       <Container>
-        <NavWrapper>
+        <Wrapper>
           <NavigationList />
           <SearchBox />
-        </NavWrapper>
+        </Wrapper>
       </Container>
     </Nav>
   );

@@ -4,22 +4,13 @@ import MediaBox from 'components/MediaBox';
 import usePopularMedia from 'hooks/usePopularMedia';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
-import { PopularMovie, MediaTypes } from 'types/media';
-
-type Override<T1, T2> = Omit<T1, keyof T2> & T2;
-
-type FilteredMovie = Override<
-  PopularMovie,
-  {
-    backdrop_path: string;
-  }
->;
+import { MediaTypes, FilteredPopularMovie } from 'types/media';
 
 const PopularMovieList = (): JSX.Element => {
   const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Movie) as {
     isError: string;
     isLoading: boolean;
-    popularMedia: FilteredMovie[] | [];
+    popularMedia: FilteredPopularMovie[] | [];
   };
 
   if (isLoading) return <Loader />;
