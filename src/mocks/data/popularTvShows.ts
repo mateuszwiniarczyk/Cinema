@@ -1,4 +1,4 @@
-import { PopularTvShow } from 'types';
+import { PopularTvShow } from 'types/media';
 
 const popularTvShows: PopularTvShow[] = [
   {

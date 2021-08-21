@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import popularMovies from 'mocks/data/popularMovies';
 import popularTvShows from 'mocks/data/popularTvShows';
-import { MediaTypes, PopularMovie, PopularTvShow } from 'types';
+import { MediaTypes, PopularMovie, PopularTvShow } from 'types/media';
 
 export const popularMedia = [
   rest.get(`https://api.themoviedb.org/3/:type/popular`, (req, res, ctx) => {

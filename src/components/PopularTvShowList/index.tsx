@@ -4,7 +4,7 @@ import MediaBox from 'components/MediaBox';
 import Loader from 'components/Loader';
 import usePopularMedia from 'hooks/usePopularMedia';
 import Alert from 'components/Alert';
-import { FilteredPopularTvShow, MediaTypes } from 'types';
+import { FilteredPopularTvShow, MediaTypes } from 'types/media';
 
 const PopularTvShowList = (): JSX.Element => {
   const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Tv) as {

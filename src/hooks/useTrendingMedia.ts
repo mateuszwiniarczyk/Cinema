@@ -5,7 +5,7 @@ import {
   TrendingTvShow,
   FilteredTrendingMovie,
   FilteredTrendingTvShow
-} from 'types';
+} from 'types/media';
 
 type Props = {
   readonly type: string;

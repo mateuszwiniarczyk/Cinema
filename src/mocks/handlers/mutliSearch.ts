@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 import matchingMedia from 'mocks/data/matchingMedia';
-import { TrendingMovie, TrendingTvShow } from 'types';
+import { TrendingMovie, TrendingTvShow } from 'types/media';
 
 export const mutliSearch = [
   rest.get(`https://api.themoviedb.org/3/search/multi`, (req, res, ctx) => {

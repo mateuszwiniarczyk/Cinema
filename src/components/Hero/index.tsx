@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
-import { MediaTypes, TrendingMovie } from 'types';
+import { MediaTypes, TrendingMovie } from 'types/media';
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({

@@ -1,7 +1,6 @@
 import { Wrapper, Image, Name, Genre } from './index.styles';
-import MOVIE_GENRES from 'data/genres/movie';
-import TV_SHOW_GENRES from 'data/genres/tvShow';
-import { MediaTypes } from 'types';
+import { MediaTypes } from 'types/media';
+import { MovieGenres, TvShowGenres } from 'types/genres';
 
 type LimitedMediaProps = {
   readonly mediaType: MediaTypes.Tv | MediaTypes.Movie;
@@ -28,7 +27,7 @@ const MediaBox = (props: Props): JSX.Element => {
 
   if (props.mediaType !== MediaTypes.All) {
     const { genreId } = props;
-    const genres = mediaType === MediaTypes.Movie ? MOVIE_GENRES : TV_SHOW_GENRES;
+    const genres = mediaType === MediaTypes.Movie ? MovieGenres : TvShowGenres;
     genreName = genreId ? genres[genreId] : 'No data';
     type = mediaType;
   } else {

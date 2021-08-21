@@ -1,4 +1,4 @@
-enum MOVIE_GENRES {
+export enum MovieGenres {
   Adventure = 12,
   Fantasy = 14,
   Animation = 16,
@@ -20,4 +20,20 @@ enum MOVIE_GENRES {
   'TV Movie' = 10770
 }
 
-export default MOVIE_GENRES;
+export enum TvShowGenres {
+  Animation = 16,
+  Drama = 18,
+  Comedy = 35,
+  Western = 37,
+  Crime = 80,
+  Documentary = 99,
+  Mystery = 9648,
+  Family = 10751,
+  'Action & Adventure' = 10759,
+  Kids = 10762,
+  News = 10763,
+  Reality = 10764,
+  'Sci-Fi & Fantasy' = 10765,
+  Soap = 10766,
+  Talk = 10767
+}

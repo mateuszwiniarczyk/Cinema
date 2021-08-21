@@ -16,7 +16,7 @@ import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
-import { TrendingTvShow, TrendingMovie } from 'types';
+import { TrendingTvShow, TrendingMovie } from 'types/media';
 
 const SearchBox = (): JSX.Element => {
   const history = useHistory();

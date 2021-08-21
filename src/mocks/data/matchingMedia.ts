@@ -1,4 +1,4 @@
-import { MediaTypes, TrendingMovie, TrendingTvShow } from 'types';
+import { MediaTypes, TrendingMovie, TrendingTvShow } from 'types/media';
 
 const matchingMedia: (TrendingMovie | TrendingTvShow)[] = [
   {

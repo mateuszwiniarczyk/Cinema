@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { MediaTypes } from 'types';
+import { MediaTypes } from 'types/media';
 
 type ImageProps = {
   readonly mediaType: MediaTypes.All | MediaTypes.Movie | MediaTypes.Tv;

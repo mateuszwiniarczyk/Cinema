@@ -4,7 +4,7 @@ import MediaBox from 'components/MediaBox';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import Alert from 'components/Alert';
-import { MediaTypes } from 'types';
+import { MediaTypes } from 'types/media';
 
 const TrendingMediaList = (): JSX.Element => {
   const { isError, isLoading, trendingMedia } = useTrendingMedia({
