@@ -1,11 +1,10 @@
-import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import { useEffect, useRef,useState } from 'react';
 import {
-  PopularMovie,
-  PopularTvShow,
   FilteredPopularMovie,
-  FilteredPopularTvShow
-} from 'types/media';
+  FilteredPopularTvShow,
+  PopularMovie,
+  PopularTvShow} from 'types/media';
 
 type returnedData = {
   isLoading: boolean;

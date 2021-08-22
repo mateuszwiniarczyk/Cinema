@@ -1,22 +1,23 @@
-import { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
+import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
+import axios from 'axios';
+import Alert from 'components/Alert';
+import Loader from 'components/Loader';
 import { useCombobox, UseComboboxStateChange } from 'downshift';
 import debounce from 'lodash.debounce';
-import axios from 'axios';
+import { useEffect, useRef,useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { TrendingMovie,TrendingTvShow } from 'types/media';
+
 import {
   ImageWrapper,
-  Title,
   SearchBtn,
   SearchInput,
   SearchResults,
   SearchResultsItem,
+  Title,
   Wrapper
 } from './index.styles';
-import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
-import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
-import Loader from 'components/Loader';
-import Alert from 'components/Alert';
-import { TrendingTvShow, TrendingMovie } from 'types/media';
 
 const SearchBox = (): JSX.Element => {
   const history = useHistory();

@@ -1,12 +1,13 @@
-import { Content, Image, Wrapper, Title, Description } from './index.styles';
-import Container from 'components/Container';
-import Button from 'components/Button';
-import DetailsList from 'components/DetailsList';
-import { Link } from 'react-router-dom';
-import useTrendingMedia from 'hooks/useTrendingMedia';
-import Loader from 'components/Loader';
 import Alert from 'components/Alert';
+import Button from 'components/Button';
+import Container from 'components/Container';
+import DetailsList from 'components/DetailsList';
+import Loader from 'components/Loader';
+import useTrendingMedia from 'hooks/useTrendingMedia';
+import { Link } from 'react-router-dom';
 import { MediaTypes, TrendingMovie } from 'types/media';
+
+import { Content, Description,Image, Title, Wrapper } from './index.styles';
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({

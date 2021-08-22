@@ -1,6 +1,7 @@
-import { Wrapper, Image, Name, Genre } from './index.styles';
-import { MediaTypes } from 'types/media';
 import { MovieGenres, TvShowGenres } from 'types/genres';
+import { MediaTypes } from 'types/media';
+
+import { Genre,Image, Name, Wrapper } from './index.styles';
 
 type MainMediaProps = {
   readonly id: number;

@@ -1,5 +1,6 @@
 import Container from 'components/Container';
-import { Wrapper, Title } from './index.styles';
+
+import { Title,Wrapper } from './index.styles';
 
 type Props = {
   readonly children: React.ReactChild;

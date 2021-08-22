@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import {
-  TrendingMovie,
-  TrendingTvShow,
   FilteredTrendingMovie,
-  FilteredTrendingTvShow
-} from 'types/media';
+  FilteredTrendingTvShow,
+  TrendingMovie,
+  TrendingTvShow} from 'types/media';
 
 type Props = {
   readonly type: string;

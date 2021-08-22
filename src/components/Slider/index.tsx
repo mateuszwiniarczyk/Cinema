@@ -1,10 +1,12 @@
-import SwiperCore, { Navigation } from 'swiper';
-import { Swiper } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
-import { Wrapper, ArrowButton } from './index.styles';
-import { ReactComponent as RightArrow } from 'assets/icons/arrow-right.svg';
+
 import { ReactComponent as LeftArrow } from 'assets/icons/arrow-left.svg';
+import { ReactComponent as RightArrow } from 'assets/icons/arrow-right.svg';
+import SwiperCore, { Navigation } from 'swiper';
+import { Swiper } from 'swiper/react';
+
+import { ArrowButton,Wrapper } from './index.styles';
 
 type Props = {
   readonly children: React.ReactNode;

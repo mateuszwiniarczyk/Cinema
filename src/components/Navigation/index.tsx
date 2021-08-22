@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Nav, Wrapper } from './index.styles';
 import Container from 'components/Container';
-import SearchBox from 'components/SearchBox';
 import NavigationList from 'components/NavigationList';
+import SearchBox from 'components/SearchBox';
+import { useEffect,useState } from 'react';
+
+import { Nav, Wrapper } from './index.styles';
 
 const Navigation = (): JSX.Element => {
   const [isNavScrolled, setIsNavScrolled] = useState(false);

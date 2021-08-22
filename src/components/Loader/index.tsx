@@ -1,5 +1,6 @@
-import { Wrapper } from './index.styles';
 import { ReactComponent as LoaderIcon } from 'assets/icons/loader.svg';
+
+import { Wrapper } from './index.styles';
 
 const Loader = (): JSX.Element => (
   <Wrapper>

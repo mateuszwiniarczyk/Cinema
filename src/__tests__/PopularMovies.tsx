@@ -1,5 +1,5 @@
-import { render, screen, act } from 'test-utils';
 import PopularMovies from 'components/PopularMovies';
+import { act,render, screen } from 'test-utils';
 
 describe('<PopularMovies />', () => {
   it('renders information about loading movies', async () => {

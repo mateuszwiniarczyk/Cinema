@@ -1,6 +1,6 @@
-import AuthTemplate from 'components/templates/AuthTemplate';
-import SignUpForm from 'components/SignUpForm';
 import AuthWrapper from 'components/AuthWrapper';
+import SignUpForm from 'components/SignUpForm';
+import AuthTemplate from 'components/templates/AuthTemplate';
 import { ROUTES } from 'utils/constants/routes';
 
 const SignUp = (): JSX.Element => (

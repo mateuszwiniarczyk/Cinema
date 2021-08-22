@@ -1,5 +1,5 @@
-import { rest } from 'msw';
 import { matchingMedia } from 'mocks/data/matchingMedia';
+import { rest } from 'msw';
 import { TrendingMovie, TrendingTvShow } from 'types/media';
 
 export const mutliSearch = [

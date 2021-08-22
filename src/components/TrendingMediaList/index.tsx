@@ -1,9 +1,9 @@
-import Slider from 'components/Slider';
-import { SwiperSlide } from 'swiper/react';
-import MediaBox from 'components/MediaBox';
-import Loader from 'components/Loader';
-import useTrendingMedia from 'hooks/useTrendingMedia';
 import Alert from 'components/Alert';
+import Loader from 'components/Loader';
+import MediaBox from 'components/MediaBox';
+import Slider from 'components/Slider';
+import useTrendingMedia from 'hooks/useTrendingMedia';
+import { SwiperSlide } from 'swiper/react';
 import { MediaTypes } from 'types/media';
 
 const TrendingMediaList = (): JSX.Element => {

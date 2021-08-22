@@ -1,10 +1,10 @@
-import Slider from 'components/Slider';
-import { SwiperSlide } from 'swiper/react';
-import MediaBox from 'components/MediaBox';
-import usePopularMedia from 'hooks/usePopularMedia';
-import Loader from 'components/Loader';
 import Alert from 'components/Alert';
-import { MediaTypes, FilteredPopularMovie } from 'types/media';
+import Loader from 'components/Loader';
+import MediaBox from 'components/MediaBox';
+import Slider from 'components/Slider';
+import usePopularMedia from 'hooks/usePopularMedia';
+import { SwiperSlide } from 'swiper/react';
+import { FilteredPopularMovie,MediaTypes } from 'types/media';
 
 const PopularMovieList = (): JSX.Element => {
   const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Movie) as {

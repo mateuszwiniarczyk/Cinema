@@ -1,5 +1,5 @@
-import Navigation from 'components/Navigation';
 import Hero from 'components/Hero';
+import Navigation from 'components/Navigation';
 import PopularMovies from 'components/PopularMovies';
 import PopularTvShows from 'components/PopularTvShows';
 import TrendingMedia from 'components/TrendingMedia';

@@ -1,7 +1,8 @@
-import { List } from './index.styles';
-import { ReactComponent as YearIcon } from 'assets/icons/year.svg';
-import { ReactComponent as RatingIcon } from 'assets/icons/rating.svg';
 import { ReactComponent as MediaTypeIcon } from 'assets/icons/media_type.svg';
+import { ReactComponent as RatingIcon } from 'assets/icons/rating.svg';
+import { ReactComponent as YearIcon } from 'assets/icons/year.svg';
+
+import { List } from './index.styles';
 
 type Props = {
   readonly year: string;

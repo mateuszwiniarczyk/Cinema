@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { NavBtn, NavBtnBox, NavBtnInner, NavList, NavListLink } from './index.styles';
 import { navLinks } from 'data/navLinks';
+import { useState } from 'react';
+
+import { NavBtn, NavBtnBox, NavBtnInner, NavList, NavListLink } from './index.styles';
 
 const NavigationList = (): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);

@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { theme } from 'assets/styles/theme';
+import { FC, ReactElement } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 

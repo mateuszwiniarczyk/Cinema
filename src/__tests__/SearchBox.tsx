@@ -1,6 +1,6 @@
-import { render, screen, act } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 import SearchBox from 'components/SearchBox';
+import { act,render, screen } from 'test-utils';
 
 describe('<SearchBox/>', () => {
   it('renders a searching list', async () => {
