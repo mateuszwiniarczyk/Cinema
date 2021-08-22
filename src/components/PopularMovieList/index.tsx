@@ -34,7 +34,7 @@ const PopularMovieList = (): JSX.Element => {
           ))}
         </Slider>
       ) : (
-        <h2>No data</h2>
+        <Alert type="info" text="Popular movies weren't found." />
       )}
     </>
   );

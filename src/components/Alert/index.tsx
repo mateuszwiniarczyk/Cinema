@@ -1,12 +1,13 @@
 import { Heading, Wrapper } from './index.styles';
 
 type Props = {
-  readonly type: 'error';
+  readonly type: 'error' | 'info';
   readonly text: string;
 };
 
 const headings = {
-  error: 'Error'
+  error: 'Error',
+  info: 'Info'
 };
 
 const Alert = ({ type, text }: Props): JSX.Element => (

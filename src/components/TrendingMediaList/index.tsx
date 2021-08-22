@@ -43,7 +43,7 @@ const TrendingMediaList = (): JSX.Element => {
           })}
         </Slider>
       ) : (
-        <h2>No data</h2>
+        <Alert type="info" text="Popular trending media weren't found." />
       )}
     </>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type WrapperProps = {
-  readonly type: 'error';
+  readonly type: 'error' | 'info';
 };
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -12,7 +12,11 @@ export const Wrapper = styled.div<WrapperProps>`
             background-color: ${theme.colors.error};
             color: ${theme.colors.white};
         `;
-        break;
+      case 'info':
+        return `
+            background-color: ${theme.colors.mercuryGrey};
+            color: ${theme.colors.black};
+            `;
       default:
         return `
             background-color: transparent;
@@ -25,6 +29,8 @@ export const Wrapper = styled.div<WrapperProps>`
   padding: 2rem;
   border-radius: 0.5rem;
   z-index: 2;
+  font-size: 1.8rem;
+  font-weight: 500;
 `;
 
 export const Heading = styled.h3`

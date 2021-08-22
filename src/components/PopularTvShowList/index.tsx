@@ -34,7 +34,7 @@ const PopularTvShowList = (): JSX.Element => {
           ))}
         </Slider>
       ) : (
-        <h2>No data</h2>
+        <Alert type="info" text="Popular tv shows weren't found." />
       )}
     </>
   );
