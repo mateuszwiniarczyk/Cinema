@@ -1,10 +1,24 @@
-import React from 'react';
-import { Wrapper } from './index.styles';
+import { Link } from 'react-router-dom';
 
-type props = {
+import { Title,Wrapper } from './index.styles';
+
+type Props = {
   readonly children: React.ReactChild;
+  readonly title: string;
+  readonly link: string;
+  readonly label: string;
+  readonly target: string;
 };
 
-const AuthWrapper = ({ children }: props): JSX.Element => <Wrapper>{children}</Wrapper>;
+const AuthWrapper = ({ title, link, label, target, children }: Props): JSX.Element => (
+  <Wrapper>
+    <Title>{title}</Title>
+    {children}
+    <p>
+      {label}
+      <Link to={link}>{target}</Link>
+    </p>
+  </Wrapper>
+);
 
 export default AuthWrapper;

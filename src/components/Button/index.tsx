@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: none;
   border: none;
   border-radius: 0.5rem;
+  text-decoration: none;
   outline: none;
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
-  padding: 1.8rem 1.2rem;
+  padding: 1.8rem 2.3rem;
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
   background-color: ${({ theme, color }) => {
@@ -28,3 +29,5 @@ export const Button = styled.button`
     opacity: 0.85;
   }
 `;
+
+export default Button;

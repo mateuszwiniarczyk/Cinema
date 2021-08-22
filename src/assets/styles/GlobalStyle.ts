@@ -15,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Inter', sans-serif;
         font-size: 1.6rem;
+        background-color: #1C1D27;
+    }
+
+    ul, ol {
+        list-style: none;
     }
 
     input, textarea, select {

@@ -12,16 +12,21 @@ const breakpoints: Breakpoints = {
   md: 768,
   lg: 992,
   xl: 1200,
-  xxl: 1440
+  '2xl': 1440,
+  '3xl': 1600
 };
 
 export const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#111111',
-    lightGrey: '#747474',
+    primary: '#1c1d27',
+    lightGrey: '#c4c4cf',
+    mercuryGrey: '#e5e5e5',
     grey: '#333333',
-    red: '#E50914'
+    red: '#E50914',
+    gold: '#FDB402',
+    error: '#FF8383;'
   },
 
   mq: Object.keys(breakpoints).reduce((acc: MQ, breakpoint) => {

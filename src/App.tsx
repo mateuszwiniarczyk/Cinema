@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
-import ROUTES from 'utils/constants/routes';
+import Home from 'pages/Home';
 import SignIn from 'pages/SignIn';
 import SignUp from 'pages/SignUp';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { ROUTES } from 'utils/constants/routes';
 
 const App = (): JSX.Element => (
   <Router>
@@ -13,7 +13,7 @@ const App = (): JSX.Element => (
       <GlobalStyle />
       <Switch>
         <Route path={ROUTES.HOME} exact>
-          Home
+          <Home />
         </Route>
         <Route path={ROUTES.SIGN_IN} exact>
           <SignIn />
