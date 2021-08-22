@@ -1,6 +1,6 @@
 import { PopularMovie } from 'types/media';
 
-const popularMovies: PopularMovie[] = [
+export const popularMovies: PopularMovie[] = [
   {
     adult: false,
     backdrop_path: '/jlGmlFOcfo8n5tURmhC7YVd4Iyy.jpg',
@@ -34,5 +34,3 @@ const popularMovies: PopularMovie[] = [
     vote_average: 8
   }
 ];
-
-export default popularMovies;

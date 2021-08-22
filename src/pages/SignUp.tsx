@@ -3,7 +3,7 @@ import SignUpForm from 'components/SignUpForm';
 import AuthWrapper from 'components/AuthWrapper';
 import Title from 'components/Title';
 import { Link } from 'react-router-dom';
-import ROUTES from 'utils/constants/routes';
+import { ROUTES } from 'utils/constants/routes';
 
 const SignUp = (): JSX.Element => (
   <AuthTemplate>

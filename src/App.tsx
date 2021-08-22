@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
-import ROUTES from 'utils/constants/routes';
 import SignIn from 'pages/SignIn';
 import SignUp from 'pages/SignUp';
 import Home from 'pages/Home';
+import { ROUTES } from 'utils/constants/routes';
 
 const App = (): JSX.Element => (
   <Router>

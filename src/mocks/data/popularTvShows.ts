@@ -1,6 +1,6 @@
 import { PopularTvShow } from 'types/media';
 
-const popularTvShows: PopularTvShow[] = [
+export const popularTvShows: PopularTvShow[] = [
   {
     backdrop_path: null,
     first_air_date: '2013-09-13',
@@ -33,5 +33,3 @@ const popularTvShows: PopularTvShow[] = [
     vote_count: 447
   }
 ];
-
-export default popularTvShows;

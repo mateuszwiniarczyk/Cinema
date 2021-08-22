@@ -1,6 +1,6 @@
 import { rest } from 'msw';
-import popularMovies from 'mocks/data/popularMovies';
-import popularTvShows from 'mocks/data/popularTvShows';
+import { popularMovies } from 'mocks/data/popularMovies';
+import { popularTvShows } from 'mocks/data/popularTvShows';
 import { MediaTypes, PopularMovie, PopularTvShow } from 'types/media';
 
 export const popularMedia = [

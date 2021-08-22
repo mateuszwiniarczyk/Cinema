@@ -1,6 +1,6 @@
 import { MediaTypes, TrendingMovie, TrendingTvShow } from 'types/media';
 
-const matchingMedia: (TrendingMovie | TrendingTvShow)[] = [
+export const matchingMedia: (TrendingMovie | TrendingTvShow)[] = [
   {
     adult: false,
     backdrop_path: '/jlGmlFOcfo8n5tURmhC7YVd4Iyy.jpg',
@@ -72,5 +72,3 @@ const matchingMedia: (TrendingMovie | TrendingTvShow)[] = [
     vote_count: 447
   }
 ];
-
-export default matchingMedia;

@@ -1,4 +1,4 @@
-const navLinks = [
+export const navLinks = [
   {
     path: '/',
     label: 'Home'
@@ -16,5 +16,3 @@ const navLinks = [
     label: 'Watch list'
   }
 ];
-
-export default navLinks;
