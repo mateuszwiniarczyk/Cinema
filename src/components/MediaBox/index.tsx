@@ -2,9 +2,9 @@ import { Wrapper, Image, Name, Genre } from './index.styles';
 import { MediaTypes } from 'types/media';
 import { MovieGenres, TvShowGenres } from 'types/genres';
 
-type LimitedMediaProps = {
-  readonly mediaType: MediaTypes.Tv | MediaTypes.Movie;
+type MainMediaProps = {
   readonly id: number;
+  readonly mediaType: MediaTypes.Tv | MediaTypes.Movie;
   readonly name: string;
   readonly image: string;
   readonly genreId: number | undefined;
@@ -18,7 +18,7 @@ type AllMediaProps = {
   readonly name: string;
 };
 
-type Props = LimitedMediaProps | AllMediaProps;
+type Props = MainMediaProps | AllMediaProps;
 
 const MediaBox = (props: Props): JSX.Element => {
   let type;
