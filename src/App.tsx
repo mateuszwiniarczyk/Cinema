@@ -3,25 +3,28 @@ import { theme } from 'assets/styles/theme';
 import Home from 'pages/Home';
 import SignIn from 'pages/SignIn';
 import SignUp from 'pages/SignUp';
-import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import { AuthProvider } from 'providers/AuthProvider';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ROUTES } from 'utils/constants/routes';
 
-const App = (): JSX.Element => (
+const App = (): React.ReactElement => (
   <Router>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Switch>
-        <Route path={ROUTES.HOME} exact>
-          <Home />
-        </Route>
-        <Route path={ROUTES.SIGN_IN} exact>
-          <SignIn />
-        </Route>
-        <Route path={ROUTES.SIGN_UP} exact>
-          <SignUp />
-        </Route>
-      </Switch>
+      <AuthProvider>
+        <GlobalStyle />
+        <Switch>
+          <Route path={ROUTES.HOME} exact>
+            <Home />
+          </Route>
+          <Route path={ROUTES.SIGN_IN} exact>
+            <SignIn />
+          </Route>
+          <Route path={ROUTES.SIGN_UP} exact>
+            <SignUp />
+          </Route>
+        </Switch>
+      </AuthProvider>
     </ThemeProvider>
   </Router>
 );
