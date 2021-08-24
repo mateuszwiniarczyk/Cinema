@@ -13,7 +13,7 @@ export const Nav = styled.nav<NavProps>`
   z-index: 5;
   background-color: ${({ isNavScrolled, theme }) =>
     isNavScrolled ? theme.colors.primary : 'transparent'};
-  box-shadow: ${({ isNavScrolled, theme }) =>
+  box-shadow: ${({ isNavScrolled }) =>
     isNavScrolled
       ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
       : 'none'};

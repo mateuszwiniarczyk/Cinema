@@ -104,7 +104,6 @@ export const SearchBtn = styled.button`
   width: 5rem;
   height: 5rem;
   border-style: none;
-  font-size: 2rem;
   outline: none;
   cursor: pointer;
   border-radius: 50%;

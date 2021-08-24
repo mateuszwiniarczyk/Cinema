@@ -5,9 +5,9 @@ import Alert from 'components/Alert';
 import Loader from 'components/Loader';
 import { useCombobox, UseComboboxStateChange } from 'downshift';
 import debounce from 'lodash.debounce';
-import { useEffect, useRef,useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TrendingMovie,TrendingTvShow } from 'types/media';
+import { TrendingMovie, TrendingTvShow } from 'types/media';
 
 import {
   ImageWrapper,
