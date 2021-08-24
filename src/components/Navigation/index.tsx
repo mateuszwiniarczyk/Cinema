@@ -1,7 +1,8 @@
 import Container from 'components/Container';
 import NavigationList from 'components/NavigationList';
 import SearchBox from 'components/SearchBox';
-import { useEffect,useState } from 'react';
+import SignOutButton from 'components/SignOutButton';
+import { useEffect, useState } from 'react';
 
 import { Nav, Wrapper } from './index.styles';
 
@@ -32,6 +33,7 @@ const Navigation = (): JSX.Element => {
         <Wrapper>
           <NavigationList />
           <SearchBox />
+          <SignOutButton />
         </Wrapper>
       </Container>
     </Nav>
