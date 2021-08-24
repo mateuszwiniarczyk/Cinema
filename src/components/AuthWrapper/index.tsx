@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Title,Wrapper } from './index.styles';
+import { Description, Title, Wrapper } from './index.styles';
 
 type Props = {
   readonly children: React.ReactChild;
@@ -14,10 +14,10 @@ const AuthWrapper = ({ title, link, label, target, children }: Props): JSX.Eleme
   <Wrapper>
     <Title>{title}</Title>
     {children}
-    <p>
+    <Description>
       {label}
       <Link to={link}>{target}</Link>
-    </p>
+    </Description>
   </Wrapper>
 );
 

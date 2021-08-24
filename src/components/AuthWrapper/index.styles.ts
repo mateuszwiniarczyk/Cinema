@@ -16,21 +16,11 @@ export const Wrapper = styled.div`
     padding: 6rem 4.8rem;
   }
 
-  p {
-    padding-top: 2rem;
-    margin-top: 3rem;
-    border-top: 0.1rem solid ${({ theme }) => theme.colors.mercuryGrey};
-    text-align: center;
-    color: ${({ theme }) => theme.colors.mercuryGrey};
-    font-size: 1.6rem;
-    font-weight: 400;
-
-    a {
-      display: inline-block;
-      margin-left: 0.5rem;
-      color: ${({ theme }) => theme.colors.red};
-      text-decoration: none;
-    }
+  a {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: ${({ theme }) => theme.colors.red};
+    text-decoration: none;
   }
 `;
 
@@ -38,4 +28,14 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   font-size: 2rem;
+`;
+
+export const Description = styled.p`
+  padding-top: 2rem;
+  margin-top: 3rem;
+  border-top: 0.1rem solid ${({ theme }) => theme.colors.mercuryGrey};
+  text-align: center;
+  color: ${({ theme }) => theme.colors.mercuryGrey};
+  font-size: 1.6rem;
+  font-weight: 400;
 `;

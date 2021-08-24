@@ -10,6 +10,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const signin = async (email: string, password: string) => {
     try {
+      console.log(email, password);
       const { user } = await auth.signInWithEmailAndPassword(email, password);
       setUser(user);
       return user;
