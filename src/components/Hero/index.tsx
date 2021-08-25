@@ -5,6 +5,7 @@ import DetailsList from 'components/DetailsList';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import { Link } from 'react-router-dom';
+import { TrendingMovie } from 'types/media';
 
 import { Content, Description, Image, Title, Wrapper } from './index.styles';
 
