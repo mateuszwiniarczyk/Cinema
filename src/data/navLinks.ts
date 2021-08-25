@@ -4,11 +4,11 @@ export const navLinks = [
     label: 'Home'
   },
   {
-    path: '/tvs',
+    path: '/search/tv',
     label: 'Tv Shows'
   },
   {
-    path: '/movies',
+    path: '/search/movie',
     label: 'Movies'
   },
   {

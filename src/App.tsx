@@ -2,6 +2,7 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import useAuth from 'hooks/useAuth';
 import Home from 'pages/Home';
+import Search from 'pages/Search';
 import SignIn from 'pages/SignIn';
 import SignUp from 'pages/SignUp';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
@@ -25,6 +26,9 @@ const AuthenticatedApp = () => (
   <Switch>
     <Route path={ROUTES.HOME} exact>
       <Home />
+    </Route>
+    <Route path={ROUTES.SEARCH} exact>
+      <Search />
     </Route>
     <Route path={ROUTES.HOME}>
       <Redirect to="/" />

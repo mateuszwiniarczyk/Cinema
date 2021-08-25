@@ -4,10 +4,10 @@ import MediaBox from 'components/MediaBox';
 import Slider from 'components/Slider';
 import usePopularMedia from 'hooks/usePopularMedia';
 import { SwiperSlide } from 'swiper/react';
-import { FilteredPopularTvShow, MediaTypes } from 'types/media';
+import { FilteredPopularTvShow } from 'types/media';
 
 const PopularTvShowList = (): JSX.Element => {
-  const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Tv) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia('tv') as {
     isLoading: boolean;
     popularMedia: FilteredPopularTvShow[] | [];
     isError: string;
@@ -28,7 +28,7 @@ const PopularTvShowList = (): JSX.Element => {
                 name={name}
                 image={backdrop_path}
                 genreId={genre_ids[0]}
-                mediaType={MediaTypes.Tv}
+                mediaType={'tv'}
               />
             </SwiperSlide>
           ))}

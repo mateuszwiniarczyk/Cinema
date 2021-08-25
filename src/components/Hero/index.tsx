@@ -5,13 +5,12 @@ import DetailsList from 'components/DetailsList';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import { Link } from 'react-router-dom';
-import { MediaTypes, TrendingMovie } from 'types/media';
 
-import { Content, Description,Image, Title, Wrapper } from './index.styles';
+import { Content, Description, Image, Title, Wrapper } from './index.styles';
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({
-    type: MediaTypes.Movie,
+    type: 'movie',
     timeRange: 'week'
   });
 
