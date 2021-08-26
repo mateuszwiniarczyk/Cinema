@@ -1,4 +1,5 @@
 import Container from 'components/Container';
+import Filters from 'components/Filters';
 import MediaList from 'components/MediaList';
 import { SearchProvider } from 'providers/SearchProvider';
 
@@ -9,6 +10,7 @@ const SearchMedia = (): JSX.Element => {
     <SearchProvider>
       <Wrapper>
         <Container>
+          <Filters />
           <MediaList />
         </Container>
       </Wrapper>
