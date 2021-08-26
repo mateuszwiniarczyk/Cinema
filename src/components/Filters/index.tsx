@@ -1,4 +1,4 @@
-import CategoryFilter from 'components/CategoryFilter';
+import GenresFilter from 'components/GenresFilter';
 import SortingFilter from 'components/SortingFilter';
 
 import { Wrapper } from './index.styles';
@@ -6,7 +6,7 @@ import { Wrapper } from './index.styles';
 const Filters = (): JSX.Element => {
   return (
     <Wrapper>
-      <CategoryFilter />
+      <GenresFilter />
       <SortingFilter />
     </Wrapper>
   );
