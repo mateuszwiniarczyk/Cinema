@@ -8,8 +8,13 @@ export const searchContext = createContext({});
 export const SearchProvider: React.FC = ({ children }) => {
   const { type }: { type: 'movie' | 'tv' } = useParams();
   const [media, setMedia] = useState<(FilteredPopularMovie | FilteredPopularTvShow)[] | []>([]);
+  const [genre, setGenre] = useState('');
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  let params = '';
+  if (genre) {
+    params += `&with_genres=${genre}`;
+  }
 
   useEffect(() => {
     (async () => {
@@ -18,7 +23,7 @@ export const SearchProvider: React.FC = ({ children }) => {
         const {
           data: { results }
         } = await axios.get(
-          `https://api.themoviedb.org/3/discover/${type}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+          `https://api.themoviedb.org/3/discover/${type}?api_key=${process.env.REACT_APP_TMDB_KEY}${params}`
         );
 
         const list = results.filter(
@@ -32,13 +37,14 @@ export const SearchProvider: React.FC = ({ children }) => {
         setIsError(error.message);
       }
     })();
-  }, [type]);
+  }, [type, params]);
 
   const searchData = {
     media,
     isLoading,
     isError,
-    mediaType: type
+    mediaType: type,
+    setGenre
   };
 
   return <searchContext.Provider value={searchData}>{children}</searchContext.Provider>;
