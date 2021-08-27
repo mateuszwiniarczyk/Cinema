@@ -132,7 +132,7 @@ export const SearchResultsItem = styled.li<SearchResultsProps>`
   transition: background-color 0.2s linear;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: ${({ theme }) => theme.colors.grey};
   }
 
   a {

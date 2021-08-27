@@ -1,5 +1,5 @@
-import { navLinks } from 'data/navLinks';
 import { useState } from 'react';
+import { navLinks } from 'utils/data/navLinks';
 
 import { NavBtn, NavBtnBox, NavBtnInner, NavList, NavListLink } from './index.styles';
 

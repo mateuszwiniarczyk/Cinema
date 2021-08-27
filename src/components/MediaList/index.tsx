@@ -15,7 +15,6 @@ const MediaList = (): JSX.Element => {
   return (
     <List>
       {media.map((mediaItem) => {
-        console.log(mediaItem);
         const { id, backdrop_path, genre_ids } = mediaItem;
         let title;
 

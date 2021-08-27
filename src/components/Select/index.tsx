@@ -1,7 +1,7 @@
+import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow-down.svg';
 import { useSelect, UseSelectStateChange } from 'downshift';
-import React from 'react';
 
-import { Button, List, Wrapper } from './index.styles';
+import { Button, List, ListItem, Wrapper } from './index.styles';
 
 type Props = {
   items: string[];
@@ -17,22 +17,26 @@ const Select = ({ items, handleSelectedItemChange, label }: Props): JSX.Element 
     getMenuProps,
     highlightedIndex,
     getItemProps
-  } = useSelect({ items, onSelectedItemChange: handleSelectedItemChange });
+  } = useSelect({
+    items,
+    onSelectedItemChange: handleSelectedItemChange
+  });
 
   return (
     <Wrapper>
       <Button type="button" {...getToggleButtonProps()}>
         {selectedItem || label}
+        <ArrowDownIcon />
       </Button>
       <List {...getMenuProps()}>
         {isOpen &&
           items.map((item, index) => (
-            <li
-              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
-              key={`${item}${index}`}
+            <ListItem
+              highlighted={highlightedIndex === index}
+              key={item}
               {...getItemProps({ item, index })}>
               {item}
-            </li>
+            </ListItem>
           ))}
       </List>
     </Wrapper>

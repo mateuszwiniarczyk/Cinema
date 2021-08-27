@@ -8,10 +8,12 @@ export const searchContext = createContext({});
 export const SearchProvider: React.FC = ({ children }) => {
   const { type }: { type: 'movie' | 'tv' } = useParams();
   const [media, setMedia] = useState<(FilteredPopularMovie | FilteredPopularTvShow)[] | []>([]);
-  const [genre, setGenre] = useState('');
+  const [genre, setGenre] = useState(null);
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
   let params = '';
+
   if (genre) {
     params += `&with_genres=${genre}`;
   }
@@ -20,6 +22,7 @@ export const SearchProvider: React.FC = ({ children }) => {
     (async () => {
       try {
         setIsLoading(true);
+
         const {
           data: { results }
         } = await axios.get(
