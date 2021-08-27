@@ -7,18 +7,20 @@ type Props = {
   items: string[];
   handleSelectedItemChange?: ((changes: UseSelectStateChange<string>) => void) | undefined;
   label: string;
+  selectedItem: null | string;
 };
 
-const Select = ({ items, handleSelectedItemChange, label }: Props): JSX.Element => {
+const Select = ({ items, handleSelectedItemChange, label, selectedItem }: Props): JSX.Element => {
   const {
     isOpen,
-    selectedItem,
+
     getToggleButtonProps,
     getMenuProps,
     highlightedIndex,
     getItemProps
   } = useSelect({
     items,
+    selectedItem,
     onSelectedItemChange: handleSelectedItemChange
   });
 

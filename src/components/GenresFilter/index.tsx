@@ -1,22 +1,36 @@
 import Select from 'components/Select';
 import { UseSelectStateChange } from 'downshift';
 import useSearch from 'hooks/useSearch';
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { MovieGenres, TvShowGenres } from 'utils/constants/genres';
 
 const GenresFilter = (): JSX.Element => {
-  const { mediaType, setGenre } = useSearch();
+  const history = useHistory();
+  const { mediaType } = useSearch();
+  const [selectedGenre, setSelectedGenre] = useState<null | string>(null);
   const genres = mediaType === 'movie' ? MovieGenres : TvShowGenres;
   const items = Object.keys(genres);
 
   const handleSelectedItemChange = ({ selectedItem }: UseSelectStateChange<string>): void => {
     if (selectedItem) {
       const genreId = genres[selectedItem];
-      setGenre(genreId);
+      history.push(`/search/${mediaType}/${genreId}`);
+      setSelectedGenre(selectedItem);
     }
   };
 
+  useEffect(() => {
+    setSelectedGenre(null);
+  }, [mediaType]);
+
   return (
-    <Select items={items} label="Genres" handleSelectedItemChange={handleSelectedItemChange} />
+    <Select
+      items={items}
+      label="Genres"
+      handleSelectedItemChange={handleSelectedItemChange}
+      selectedItem={selectedGenre}
+    />
   );
 };
 

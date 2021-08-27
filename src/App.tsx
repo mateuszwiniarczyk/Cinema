@@ -30,6 +30,9 @@ const AuthenticatedApp = () => (
     <Route path={ROUTES.SEARCH} exact>
       <Search />
     </Route>
+    <Route path="/search/:type/:genre" exact>
+      <Search />
+    </Route>
     <Route path={ROUTES.HOME}>
       <Redirect to="/" />
     </Route>

@@ -6,9 +6,8 @@ import { FilteredPopularMovie, FilteredPopularTvShow } from 'types/media';
 export const searchContext = createContext({});
 
 export const SearchProvider: React.FC = ({ children }) => {
-  const { type }: { type: 'movie' | 'tv' } = useParams();
+  const { type, genre }: { type: 'movie' | 'tv'; genre: string } = useParams();
   const [media, setMedia] = useState<(FilteredPopularMovie | FilteredPopularTvShow)[] | []>([]);
-  const [genre, setGenre] = useState(null);
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,8 +45,7 @@ export const SearchProvider: React.FC = ({ children }) => {
     media,
     isLoading,
     isError,
-    mediaType: type,
-    setGenre
+    mediaType: type
   };
 
   return <searchContext.Provider value={searchData}>{children}</searchContext.Provider>;
