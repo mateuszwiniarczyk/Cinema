@@ -1,11 +1,5 @@
 export type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 
-export enum MediaTypes {
-  All = 'all',
-  Movie = 'movie',
-  Tv = 'tv'
-}
-
 export type TrendingMovie = {
   adult: boolean;
   backdrop_path: string | null;

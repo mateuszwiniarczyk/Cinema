@@ -12,7 +12,7 @@ const AuthenticatedApp = (): React.ReactElement => (
       <Search />
     </Route>
     <Route path={ROUTES.HOME}>
-      <Redirect to="/" />
+      <Redirect to={ROUTES.HOME} />
     </Route>
   </>
 );

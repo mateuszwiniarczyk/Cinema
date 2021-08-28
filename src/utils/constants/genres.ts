@@ -2,7 +2,7 @@ type Genres = {
   [key: string]: number;
 };
 
-export const MovieGenres: Genres = {
+export const MOVIE_GENRES: Genres = {
   Adventure: 12,
   Fantasy: 14,
   Animation: 16,
@@ -24,7 +24,7 @@ export const MovieGenres: Genres = {
   'TV Movie': 10770
 };
 
-export const TvShowGenres: Genres = {
+export const TV_SHOW_GENRES: Genres = {
   Animation: 16,
   Drama: 18,
   Comedy: 35,

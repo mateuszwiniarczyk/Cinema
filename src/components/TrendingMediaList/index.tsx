@@ -4,10 +4,11 @@ import MediaBox from 'components/MediaBox';
 import Slider from 'components/Slider';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import { SwiperSlide } from 'swiper/react';
+import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
 const TrendingMediaList = (): JSX.Element => {
   const { isError, isLoading, trendingMedia } = useTrendingMedia({
-    type: 'all',
+    type: MEDIA_TYPES.ALL,
     timeRange: 'day'
   });
 
@@ -33,7 +34,7 @@ const TrendingMediaList = (): JSX.Element => {
                 <MediaBox
                   id={id}
                   image={poster_path}
-                  mediaType={'all'}
+                  mediaType={MEDIA_TYPES.ALL}
                   link={media_type}
                   name={title}
                 />

@@ -1,4 +1,5 @@
-import { MovieGenres, TvShowGenres } from 'utils/constants/genres';
+import { MOVIE_GENRES, TV_SHOW_GENRES } from 'utils/constants/genres';
+import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
 import { Genre, Image, Name, Wrapper } from './index.styles';
 
@@ -28,9 +29,9 @@ const MediaBox = (props: Props): JSX.Element => {
   let type;
   let genreName;
   const { id, image, mediaType, name } = props;
-  if (props.mediaType !== 'all') {
+  if (props.mediaType !== MEDIA_TYPES.ALL) {
     const { genreId } = props;
-    const genres = mediaType === 'movie' ? MovieGenres : TvShowGenres;
+    const genres = mediaType === MEDIA_TYPES.MOVIE ? MOVIE_GENRES : TV_SHOW_GENRES;
 
     genreName = genreId ? getKeyByValue(genres, genreId) : 'No data';
     type = mediaType;
@@ -47,7 +48,7 @@ const MediaBox = (props: Props): JSX.Element => {
         mediaType={mediaType}
         loading="lazy"
       />
-      {props.mediaType !== 'all' ? (
+      {props.mediaType !== MEDIA_TYPES.ALL ? (
         <>
           <Name>{name}</Name>
           <Genre>{genreName}</Genre>
