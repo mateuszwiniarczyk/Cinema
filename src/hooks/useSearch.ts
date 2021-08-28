@@ -7,6 +7,9 @@ type SearchData = {
   isError: string;
   media: (FilteredPopularMovie | FilteredPopularTvShow)[] | [];
   mediaType: 'movie' | 'tv';
+  currentPage: number;
+  totalPages: number;
+  setCurrentPage: (page: number) => void;
 };
 
 const useSearch = (): SearchData => {

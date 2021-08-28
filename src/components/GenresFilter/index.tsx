@@ -7,7 +7,7 @@ import { MovieGenres, TvShowGenres } from 'utils/constants/genres';
 
 const GenresFilter = (): JSX.Element => {
   const history = useHistory();
-  const { mediaType } = useSearch();
+  const { mediaType, setCurrentPage } = useSearch();
   const [selectedGenre, setSelectedGenre] = useState<null | string>(null);
   const genres = mediaType === 'movie' ? MovieGenres : TvShowGenres;
   const items = Object.keys(genres);
@@ -17,6 +17,7 @@ const GenresFilter = (): JSX.Element => {
       const genreId = genres[selectedItem];
       history.push(`/search/${mediaType}/${genreId}`);
       setSelectedGenre(selectedItem);
+      setCurrentPage(1);
     }
   };
 

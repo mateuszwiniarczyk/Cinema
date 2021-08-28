@@ -10,8 +10,14 @@ export const SearchProvider: React.FC = ({ children }) => {
   const [media, setMedia] = useState<(FilteredPopularMovie | FilteredPopularTvShow)[] | []>([]);
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  let params = '';
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [type]);
+
+  let params = `&page=${currentPage}`;
 
   if (genre) {
     params += `&with_genres=${genre}`;
@@ -22,30 +28,41 @@ export const SearchProvider: React.FC = ({ children }) => {
       try {
         setIsLoading(true);
 
-        const {
-          data: { results }
-        } = await axios.get(
+        const { data } = await axios.get(
           `https://api.themoviedb.org/3/discover/${type}?api_key=${process.env.REACT_APP_TMDB_KEY}${params}`
         );
+
+        const { results, total_pages } = data;
+
+        setTotalPages(total_pages);
 
         const list = results.filter(
           (result: FilteredPopularTvShow | FilteredPopularMovie) =>
             result.backdrop_path && result.poster_path
         );
-        setMedia(list);
+
+        if (currentPage > 1) {
+          setMedia((prevState) => [...prevState, ...list]);
+        } else {
+          setMedia(list);
+        }
+
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
         setIsError(error.message);
       }
     })();
-  }, [type, params]);
+  }, [type, params, currentPage]);
 
   const searchData = {
     media,
     isLoading,
     isError,
-    mediaType: type
+    mediaType: type,
+    currentPage,
+    totalPages,
+    setCurrentPage
   };
 
   return <searchContext.Provider value={searchData}>{children}</searchContext.Provider>;
