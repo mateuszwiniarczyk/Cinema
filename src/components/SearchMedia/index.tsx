@@ -1,7 +1,7 @@
 import Container from 'components/Container';
 import Filters from 'components/Filters';
 import MediaList from 'components/MediaList';
-import { SearchProvider } from 'providers/SearchProvider';
+import SearchProvider from 'providers/SearchProvider';
 
 import { Wrapper } from './index.styles';
 
