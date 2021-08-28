@@ -41,7 +41,7 @@ const MediaBox = (props: Props): JSX.Element => {
   }
 
   return (
-    <Wrapper to={`/${type}/${id}`}>
+    <Wrapper to={`/media/${type}/${id}`}>
       <Image
         src={`https://image.tmdb.org/t/p/w300/${image}`}
         alt={name}

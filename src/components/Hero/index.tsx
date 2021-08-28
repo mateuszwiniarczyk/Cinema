@@ -32,7 +32,7 @@ const Hero = (): JSX.Element => {
                 rating={mainMedia.vote_average}
               />
               <Description>{mainMedia.overview}</Description>
-              <Button as={Link} to={`/${mainMedia.media_type}/${mainMedia.id}`}>
+              <Button as={Link} to={`/media/${mainMedia.media_type}/${mainMedia.id}`}>
                 More info
               </Button>
             </Content>
