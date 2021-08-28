@@ -13,7 +13,13 @@ type SearchData = {
 };
 
 const useSearch = (): SearchData => {
-  return useContext(searchContext) as SearchData;
+  const context = useContext(searchContext) as SearchData;
+
+  if (!context) {
+    throw Error('useSearch needs to be used inside SearchContext');
+  }
+
+  return context;
 };
 
 export default useSearch;

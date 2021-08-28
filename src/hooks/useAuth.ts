@@ -11,7 +11,13 @@ type firebaseAuth = {
 };
 
 const useAuth = (): firebaseAuth => {
-  return useContext(authContext) as firebaseAuth;
+  const context = useContext(authContext) as firebaseAuth;
+
+  if (!context) {
+    throw Error('useAuth needs to be used inside AuthContext');
+  }
+
+  return context;
 };
 
 export default useAuth;
