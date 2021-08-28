@@ -4,10 +4,11 @@ import MediaBox from 'components/MediaBox';
 import Slider from 'components/Slider';
 import usePopularMedia from 'hooks/usePopularMedia';
 import { SwiperSlide } from 'swiper/react';
-import { FilteredPopularMovie,MediaTypes } from 'types/media';
+import { FilteredPopularMovie } from 'types/media';
+import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
 const PopularMovieList = (): JSX.Element => {
-  const { isError, isLoading, popularMedia } = usePopularMedia(MediaTypes.Movie) as {
+  const { isError, isLoading, popularMedia } = usePopularMedia(MEDIA_TYPES.MOVIE) as {
     isError: string;
     isLoading: boolean;
     popularMedia: FilteredPopularMovie[] | [];
@@ -28,7 +29,7 @@ const PopularMovieList = (): JSX.Element => {
                 name={title}
                 image={backdrop_path}
                 genreId={genre_ids[0]}
-                mediaType={MediaTypes.Movie}
+                mediaType={MEDIA_TYPES.MOVIE}
               />
             </SwiperSlide>
           ))}

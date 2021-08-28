@@ -1,14 +1,14 @@
 import App from 'App';
-import { AuthProvider } from 'providers/AuthProvider';
+import AppProviders from 'providers/AppProviders';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from 'reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
+    <AppProviders>
       <App />
-    </AuthProvider>
+    </AppProviders>
   </React.StrictMode>,
   document.getElementById('root')
 );

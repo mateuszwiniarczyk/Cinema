@@ -4,7 +4,7 @@ import { auth } from 'services/firebase';
 
 export const authContext = createContext({});
 
-export const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<firebase.User | null>(null);
   const [isError, setIsError] = useState('');
 
@@ -62,3 +62,5 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   return <authContext.Provider value={authData}>{children}</authContext.Provider>;
 };
+
+export default AuthProvider;

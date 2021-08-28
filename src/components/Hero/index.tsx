@@ -5,13 +5,14 @@ import DetailsList from 'components/DetailsList';
 import Loader from 'components/Loader';
 import useTrendingMedia from 'hooks/useTrendingMedia';
 import { Link } from 'react-router-dom';
-import { MediaTypes, TrendingMovie } from 'types/media';
+import { TrendingMovie } from 'types/media';
+import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
-import { Content, Description,Image, Title, Wrapper } from './index.styles';
+import { Content, Description, Image, Title, Wrapper } from './index.styles';
 
 const Hero = (): JSX.Element => {
   const { isLoading, isError, trendingMedia } = useTrendingMedia({
-    type: MediaTypes.Movie,
+    type: MEDIA_TYPES.MOVIE,
     timeRange: 'week'
   });
 
@@ -31,7 +32,7 @@ const Hero = (): JSX.Element => {
                 rating={mainMedia.vote_average}
               />
               <Description>{mainMedia.overview}</Description>
-              <Button as={Link} to={`/${mainMedia.media_type}/${mainMedia.id}`}>
+              <Button as={Link} to={`/media/${mainMedia.media_type}/${mainMedia.id}`}>
                 More info
               </Button>
             </Content>
