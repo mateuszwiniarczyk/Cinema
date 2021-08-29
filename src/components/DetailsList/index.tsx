@@ -5,21 +5,23 @@ import { ReactComponent as YearIcon } from 'assets/icons/year.svg';
 import { List } from './index.styles';
 
 type Props = {
-  readonly year: string;
-  readonly type: string;
-  readonly rating: number;
+  readonly year: string | undefined;
+  readonly type: string | undefined;
+  readonly rating: number | undefined;
 };
+
+const noData = 'No data';
 
 const DetailsList = ({ year, type, rating }: Props): JSX.Element => (
   <List>
     <li>
-      <MediaTypeIcon /> {type}
+      <MediaTypeIcon /> {type ? type : noData}
     </li>
     <li>
-      <RatingIcon /> {rating}
+      <RatingIcon /> {rating ? rating : noData}
     </li>
     <li>
-      <YearIcon /> {year.slice(0, 4)}
+      <YearIcon /> {year ? year.slice(0, 4) : noData}
     </li>
   </List>
 );

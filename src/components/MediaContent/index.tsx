@@ -1,29 +1,38 @@
-import axios from 'axios';
+import Alert from 'components/Alert';
+import Button from 'components/Button';
 import Container from 'components/Container';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import DetailsList from 'components/DetailsList';
+import Loader from 'components/Loader';
+import useMedia from 'hooks/useMedia';
 
-import { Content, Wrapper } from './index.styles';
+import { Content, Description, Image, Title, Wrapper } from './index.styles';
 
 const MediaContent = (): React.ReactElement => {
-  const { type, id } = useParams<{ type: string; id: string }>();
-  const [media, setMedia] = useState(null);
+  const { media, isLoading, isError, type } = useMedia();
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios(
-        `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-      );
+  const title = media && 'title' in media ? media.title : media?.name;
+  const release_date =
+    media && 'release_date' in media ? media.release_date : media?.first_air_date;
 
-      setMedia(data);
-    })();
-  }, [type, id]);
+  const { overview, poster_path, vote_average } = media || {};
+
+  if (isLoading) return <Loader />;
+
+  if (isError) return <Alert type="error" text={isError} />;
 
   return (
     <Container>
-      <Wrapper>
-        <Content>{media && <h1>Media</h1>}</Content>
-      </Wrapper>
+      {media && (
+        <Wrapper>
+          <Content>
+            <Title>{title}</Title>
+            <DetailsList year={release_date} type={type} rating={vote_average} />
+            <Description>{overview ? overview : 'No data'}</Description>
+            <Button>Add to wishlist</Button>
+          </Content>
+          <Image src={`https://image.tmdb.org/t/p/w300/${poster_path}`} />
+        </Wrapper>
+      )}
     </Container>
   );
 };

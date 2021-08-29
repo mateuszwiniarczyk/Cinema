@@ -63,7 +63,7 @@ const SearchBox = (): JSX.Element => {
       onInputValueChange: getMatchingMedia,
       onSelectedItemChange: ({ selectedItem }) => {
         if (selectedItem) {
-          history.push(`/${selectedItem.media_type}/${selectedItem.id}`);
+          history.push(`/media/${selectedItem.media_type}/${selectedItem.id}`);
         }
       }
     });

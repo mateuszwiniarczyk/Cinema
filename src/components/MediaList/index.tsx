@@ -23,13 +23,7 @@ const MediaList = (): JSX.Element => {
       <List>
         {media.map((mediaItem) => {
           const { id, backdrop_path, genre_ids } = mediaItem;
-          let title;
-
-          if ('name' in mediaItem) {
-            title = mediaItem.name;
-          } else {
-            title = mediaItem.title;
-          }
+          const title = 'name' in mediaItem ? mediaItem.name : mediaItem.title;
 
           return (
             <MediaBox
