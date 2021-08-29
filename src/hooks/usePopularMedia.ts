@@ -1,18 +1,19 @@
 import axios from 'axios';
-import { useEffect, useRef,useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   FilteredPopularMovie,
   FilteredPopularTvShow,
   PopularMovie,
-  PopularTvShow} from 'types/media';
+  PopularTvShow
+} from 'types/media';
 
-type returnedData = {
+interface ReturnedData {
   isLoading: boolean;
   isError: string;
   popularMedia: (FilteredPopularMovie | FilteredPopularTvShow)[] | [];
-};
+}
 
-const usePopularMedia = (type: string): returnedData => {
+const usePopularMedia = (type: string): ReturnedData => {
   const [popularMedia, setPopularMedia] = useState<
     (FilteredPopularMovie | FilteredPopularTvShow)[] | []
   >([]);

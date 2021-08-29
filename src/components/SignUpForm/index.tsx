@@ -7,7 +7,11 @@ import { useForm } from 'react-hook-form';
 
 import { Form } from './index.styles';
 
-type SignUpData = { email: string; password: string; confirmPassword: string };
+interface SignUpData {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 const SignUpForm = (): JSX.Element => {
   const { isError, signup, signout } = useAuth();

@@ -4,11 +4,11 @@ import { ReactComponent as YearIcon } from 'assets/icons/year.svg';
 
 import { List } from './index.styles';
 
-type Props = {
+interface Props {
   readonly year: string | undefined;
   readonly type: string | undefined;
   readonly rating: number | undefined;
-};
+}
 
 const noData = 'No data';
 

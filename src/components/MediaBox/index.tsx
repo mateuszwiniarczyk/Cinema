@@ -3,21 +3,21 @@ import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
 import { Genre, Image, Name, Wrapper } from './index.styles';
 
-type MainMediaProps = {
+interface MainMediaProps {
   readonly id: number;
   readonly mediaType: 'tv' | 'movie';
   readonly name: string;
   readonly image: string;
   readonly genreId: number | undefined;
-};
+}
 
-type AllMediaProps = {
+interface AllMediaProps {
   readonly id: number;
   readonly mediaType: 'all';
   readonly link: string;
   readonly image: string;
   readonly name: string;
-};
+}
 
 type Props = MainMediaProps | AllMediaProps;
 

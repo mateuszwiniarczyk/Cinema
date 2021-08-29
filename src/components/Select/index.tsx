@@ -3,12 +3,12 @@ import { useSelect, UseSelectStateChange } from 'downshift';
 
 import { Button, List, ListItem, Wrapper } from './index.styles';
 
-type Props = {
+interface Props {
   items: string[];
   handleSelectedItemChange?: ((changes: UseSelectStateChange<string>) => void) | undefined;
   label: string;
   selectedItem: null | string;
-};
+}
 
 const Select = ({ items, handleSelectedItemChange, label, selectedItem }: Props): JSX.Element => {
   const {

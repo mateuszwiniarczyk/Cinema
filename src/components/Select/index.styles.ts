@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-type ListItemProps = {
+interface ListItemProps {
   highlighted: boolean;
-};
+}
 
 export const Wrapper = styled.div`
   position: relative;

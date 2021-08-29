@@ -2,7 +2,7 @@ import { searchContext } from 'providers/SearchProvider';
 import { useContext } from 'react';
 import { FilteredPopularMovie, FilteredPopularTvShow } from 'types/media';
 
-type SearchData = {
+interface SearchData {
   isLoading: boolean;
   isError: string;
   media: (FilteredPopularMovie | FilteredPopularTvShow)[] | [];
@@ -10,7 +10,7 @@ type SearchData = {
   currentPage: number;
   totalPages: number;
   setCurrentPage: (page: number) => void;
-};
+}
 
 const useSearch = (): SearchData => {
   const context = useContext(searchContext) as SearchData;

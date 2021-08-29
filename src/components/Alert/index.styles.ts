@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-type WrapperProps = {
+interface WrapperProps {
   readonly type: 'error' | 'info';
-};
+}
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ type, theme }) => {

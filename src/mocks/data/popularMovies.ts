@@ -15,7 +15,8 @@ export const popularMovies: PopularMovie[] = [
     release_date: '2021-07-28',
     title: 'The Suicide Squad',
     video: false,
-    vote_average: 8.1
+    vote_average: 8.1,
+    vote_count: 1291
   },
   {
     adult: false,
@@ -31,6 +32,7 @@ export const popularMovies: PopularMovie[] = [
     release_date: '2021-07-28',
     title: 'Jungle Cruise',
     video: false,
-    vote_average: 8
+    vote_average: 8,
+    vote_count: 81
   }
 ];

@@ -1,9 +1,9 @@
 import { Heading, Wrapper } from './index.styles';
 
-type Props = {
+interface Props {
   readonly type: 'error' | 'info';
   readonly text: string;
-};
+}
 
 const headings = {
   error: 'Error',

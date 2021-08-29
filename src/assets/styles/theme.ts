@@ -1,10 +1,10 @@
-type Breakpoints = {
+interface Breakpoints {
   [key: string]: number;
-};
+}
 
-type MQ = {
+interface MQ {
   [key: string]: string;
-};
+}
 
 const breakpoints: Breakpoints = {
   xs: 400,

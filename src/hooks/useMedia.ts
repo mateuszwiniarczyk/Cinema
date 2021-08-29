@@ -3,19 +3,19 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FilteredPopularMovie, FilteredPopularTvShow } from 'types/media';
 
-type Params = {
+interface Params {
   type: string;
   id: string;
-};
+}
 
-type returnedData = {
+interface ReturnedData {
   isLoading: boolean;
   isError: string;
   media: FilteredPopularMovie | FilteredPopularTvShow | null;
   type: string;
-};
+}
 
-const useMedia = (): returnedData => {
+const useMedia = (): ReturnedData => {
   const { type, id } = useParams<Params>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');

@@ -4,20 +4,21 @@ import {
   FilteredTrendingMovie,
   FilteredTrendingTvShow,
   TrendingMovie,
-  TrendingTvShow} from 'types/media';
+  TrendingTvShow
+} from 'types/media';
 
-type Props = {
+interface Props {
   readonly type: string;
   readonly timeRange: string;
-};
+}
 
-type returnedData = {
+interface ReturnedData {
   isLoading: boolean;
   isError: string;
   trendingMedia: (FilteredTrendingMovie | FilteredTrendingTvShow)[] | [];
-};
+}
 
-const useTrendingMedia = ({ type, timeRange }: Props): returnedData => {
+const useTrendingMedia = ({ type, timeRange }: Props): ReturnedData => {
   const [trendingMedia, setTrendingMedia] = useState<
     (FilteredTrendingMovie | FilteredTrendingTvShow)[] | []
   >([]);

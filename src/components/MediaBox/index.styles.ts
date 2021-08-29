@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { MEDIA_TYPES } from 'utils/constants/mediaTypes';
 
-type ImageProps = {
+interface ImageProps {
   readonly mediaType: 'all' | 'movie' | 'tv';
-};
+}
 
 export const Wrapper = styled(Link)`
   display: block;

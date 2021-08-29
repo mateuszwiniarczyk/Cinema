@@ -1,6 +1,6 @@
-type Genres = {
+interface Genres {
   [key: string]: number;
-};
+}
 
 export const MOVIE_GENRES: Genres = {
   Adventure: 12,

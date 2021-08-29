@@ -6,12 +6,11 @@ import { ReactComponent as RightArrow } from 'assets/icons/arrow-right.svg';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
 
-import { ArrowButton,Wrapper } from './index.styles';
-
-type Props = {
+import { ArrowButton, Wrapper } from './index.styles';
+interface Props {
   readonly children: React.ReactNode;
   readonly arrowBtnId: string;
-};
+}
 
 const breakpoints = {
   300: {

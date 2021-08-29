@@ -4,9 +4,9 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-type ArrowButtonProps = {
+interface ArrowButtonProps {
   readonly right?: boolean;
-};
+}
 
 export const ArrowButton = styled.button<ArrowButtonProps>`
   display: none;

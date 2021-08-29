@@ -1,8 +1,8 @@
 import { Wrapper } from './index.styles';
 
-type Props = {
+interface Props {
   readonly children: JSX.Element;
-};
+}
 
 const AuthTemplate = ({ children }: Props): JSX.Element => (
   <Wrapper>

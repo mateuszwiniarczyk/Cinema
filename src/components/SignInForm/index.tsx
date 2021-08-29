@@ -5,8 +5,10 @@ import useAuth from 'hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
 import { Form } from './index.styles';
-
-type SignInData = { email: string; password: string };
+interface SignInData {
+  email: string;
+  password: string;
+}
 
 const SignInForm = (): JSX.Element => {
   const { isError, signin } = useAuth();

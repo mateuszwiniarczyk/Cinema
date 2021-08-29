@@ -5,9 +5,9 @@ import { ThemeProvider } from 'styled-components';
 
 import AuthProvider from './AuthProvider';
 
-type Props = {
+interface Props {
   children: React.ReactElement;
-};
+}
 
 const AppProviders = ({ children }: Props): React.ReactElement => {
   return (
