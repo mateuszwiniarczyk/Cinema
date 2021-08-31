@@ -8,7 +8,7 @@ interface MainMediaProps {
   readonly mediaType: 'tv' | 'movie';
   readonly name: string;
   readonly image: string;
-  readonly genreId: number | undefined;
+  readonly genreId?: number | undefined;
 }
 
 interface AllMediaProps {
@@ -51,7 +51,7 @@ const MediaBox = (props: Props): JSX.Element => {
       {props.mediaType !== MEDIA_TYPES.ALL ? (
         <>
           <Name>{name}</Name>
-          <Genre>{genreName}</Genre>
+          {genreName ? <Genre>{genreName}</Genre> : null}
         </>
       ) : null}
     </Wrapper>
