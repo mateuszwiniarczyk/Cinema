@@ -8,7 +8,7 @@ interface MainMediaProps {
   readonly mediaType: 'tv' | 'movie';
   readonly name: string;
   readonly image: string;
-  readonly genreId?: number | undefined;
+  readonly genreId: number | null;
 }
 
 interface AllMediaProps {
@@ -29,13 +29,13 @@ const MediaBox = (props: Props): JSX.Element => {
   let type;
   let genreName;
   const { id, image, mediaType, name } = props;
-  if (props.mediaType !== MEDIA_TYPES.ALL) {
+  if ('genreId' in props) {
     const { genreId } = props;
     const genres = mediaType === MEDIA_TYPES.MOVIE ? MOVIE_GENRES : TV_SHOW_GENRES;
 
     genreName = genreId ? getKeyByValue(genres, genreId) : 'No data';
     type = mediaType;
-  } else {
+  } else if ('link' in props) {
     const { link } = props;
     type = link;
   }
@@ -48,7 +48,7 @@ const MediaBox = (props: Props): JSX.Element => {
         mediaType={mediaType}
         loading="lazy"
       />
-      {props.mediaType !== MEDIA_TYPES.ALL ? (
+      {mediaType !== MEDIA_TYPES.ALL ? (
         <>
           <Name>{name}</Name>
           {genreName ? <Genre>{genreName}</Genre> : null}

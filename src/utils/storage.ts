@@ -1,10 +1,11 @@
 const storagePrefix = 'cinema_react_';
 
 interface Media {
-  id: string;
+  id: number;
   image: string;
   title: string;
-  type: string;
+  type: 'tv' | 'movie';
+  genre: number | null;
 }
 
 interface Watchlist {

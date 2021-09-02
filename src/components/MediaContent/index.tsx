@@ -21,13 +21,14 @@ const MediaContent = (): React.ReactElement => {
   const release_date =
     media && 'release_date' in media ? media.release_date : media?.first_air_date;
 
-  const { overview, poster_path, vote_average } = media || {};
+  const { overview, poster_path, backdrop_path, vote_average, genres } = media || {};
 
   const data = {
-    id,
-    image: poster_path as string,
+    id: parseFloat(id),
+    image: backdrop_path as string,
     title: title as string,
-    type: type
+    type: type as 'tv' | 'movie',
+    genre: genres && genres[0] ? genres[0].id : null
   };
 
   const { mediaExists, addItem, removeItem } = useWatchlist(id, data);
