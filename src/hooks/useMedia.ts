@@ -1,25 +1,25 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FilteredPopularMovie, FilteredPopularTvShow } from 'types/media';
+import { WatchlistMovie, WatchlistTvShow } from 'types/media';
 
 interface Params {
-  type: string;
+  type: 'tv' | 'movie';
   id: string;
 }
 
 interface ReturnedData {
   isLoading: boolean;
   isError: string;
-  media: FilteredPopularMovie | FilteredPopularTvShow | null;
-  type: string;
+  media: WatchlistMovie | WatchlistTvShow | null;
+  type: 'tv' | 'movie';
 }
 
 const useMedia = (): ReturnedData => {
   const { type, id } = useParams<Params>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
-  const [media, setMedia] = useState<null | FilteredPopularTvShow | FilteredPopularMovie>(null);
+  const [media, setMedia] = useState<null | WatchlistMovie | WatchlistTvShow>(null);
 
   useEffect(() => {
     (async () => {

@@ -4,6 +4,7 @@ import Home from 'views/Home';
 import Search from 'views/Search';
 
 import Media from './Media';
+import Watchlist from './Watchlist';
 
 const AuthenticatedApp = (): React.ReactElement => (
   <>
@@ -15,6 +16,9 @@ const AuthenticatedApp = (): React.ReactElement => (
     </Route>
     <Route path={ROUTES.MEDIA} exact>
       <Media />
+    </Route>
+    <Route path={ROUTES.WATCHLIST} exact>
+      <Watchlist />
     </Route>
     <Route path={ROUTES.HOME}>
       <Redirect to={ROUTES.HOME} />
