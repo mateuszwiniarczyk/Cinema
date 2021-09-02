@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import AuthProvider from './AuthProvider';
-
 interface Props {
   children: React.ReactElement;
 }

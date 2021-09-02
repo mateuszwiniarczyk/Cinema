@@ -1,16 +1,9 @@
 import Container from 'components/Container';
 import MediaBox from 'components/MediaBox';
 import useWatchlist from 'hooks/useWatchlist';
+import { WatchlistMedia } from 'types/media';
 
 import { MediaList, Title, Wrapper } from './index.styles';
-
-interface Media {
-  id: number;
-  image: string;
-  title: string;
-  type: 'tv' | 'movie';
-  genre: number | null;
-}
 
 const WatchlistContent = (): JSX.Element => {
   const { watchlist } = useWatchlist();
@@ -21,7 +14,7 @@ const WatchlistContent = (): JSX.Element => {
       <Wrapper>
         {mediaList.length ? (
           <MediaList>
-            {mediaList.map((item: Media) => (
+            {mediaList.map((item: WatchlistMedia) => (
               <MediaBox
                 key={item.id}
                 id={item.id}

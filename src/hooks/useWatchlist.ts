@@ -1,17 +1,10 @@
 import { useEffect, useState } from 'react';
+import { WatchlistMedia } from 'types/media';
 import storage from 'utils/storage';
-
-interface Media {
-  id: number;
-  image: string;
-  title: string;
-  type: 'tv' | 'movie';
-  genre: number | null;
-}
 
 interface ReturnedData {
   watchlist: {
-    [key: string]: Media | never;
+    [key: string]: WatchlistMedia | never;
   };
   mediaExists: boolean;
   addItem: () => void;
@@ -19,10 +12,10 @@ interface ReturnedData {
 }
 
 interface Watchlist {
-  [key: string]: Media | never;
+  [key: string]: WatchlistMedia | never;
 }
 
-const useWatchlist = (id?: string, data?: Media): ReturnedData => {
+const useWatchlist = (id?: string, data?: WatchlistMedia): ReturnedData => {
   const [watchlist, setWatchlist] = useState<Watchlist>({});
   const [mediaExists, setMediaExists] = useState(false);
 

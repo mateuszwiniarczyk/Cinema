@@ -1,15 +1,9 @@
+import { WatchlistMedia } from 'types/media';
+
 const storagePrefix = 'cinema_react_';
 
-interface Media {
-  id: number;
-  image: string;
-  title: string;
-  type: 'tv' | 'movie';
-  genre: number | null;
-}
-
 interface Watchlist {
-  [key: string]: Media | never;
+  [key: string]: WatchlistMedia | never;
 }
 
 const storage = {

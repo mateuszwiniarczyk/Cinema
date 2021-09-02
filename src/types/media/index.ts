@@ -61,3 +61,11 @@ export type FilteredTrendingTvShow = Override<TrendingTvShow, MediaImages>;
 export interface WatchlistMovie extends FilteredPopularMovie, WatchlistBase {}
 
 export interface WatchlistTvShow extends FilteredPopularTvShow, WatchlistBase {}
+
+export interface WatchlistMedia {
+  id: number;
+  image: string;
+  title: string;
+  type: 'tv' | 'movie';
+  genre: number | null;
+}
