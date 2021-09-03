@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding-top: 11vh;
+  padding-top: 9rem;
 `;
 
 export const MediaList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 5rem;
   margin-bottom: 5rem;
   justify-content: flex-start;

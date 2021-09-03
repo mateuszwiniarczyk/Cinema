@@ -1,13 +1,5 @@
 import MediaContent from 'components/MediaContent';
-import Navigation from 'components/Navigation';
 
-const Media = (): React.ReactElement => {
-  return (
-    <>
-      <Navigation />
-      <MediaContent />
-    </>
-  );
-};
+const Media = (): React.ReactElement => <MediaContent />;
 
 export default Media;

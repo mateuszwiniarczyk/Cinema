@@ -1,14 +1,5 @@
-import Navigation from 'components/Navigation';
 import WatchlistContent from 'components/WatchlistContent';
-import React from 'react';
 
-const Watchlist = (): JSX.Element => {
-  return (
-    <>
-      <Navigation />
-      <WatchlistContent />
-    </>
-  );
-};
+const Watchlist = (): JSX.Element => <WatchlistContent />;
 
 export default Watchlist;

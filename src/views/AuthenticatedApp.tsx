@@ -1,3 +1,4 @@
+import Navigation from 'components/Navigation';
 import { Redirect, Route } from 'react-router-dom';
 import { ROUTES } from 'utils/constants/routes';
 import Home from 'views/Home';
@@ -8,6 +9,7 @@ import Watchlist from './Watchlist';
 
 const AuthenticatedApp = (): React.ReactElement => (
   <>
+    <Navigation />
     <Route path={ROUTES.HOME} exact>
       <Home />
     </Route>
