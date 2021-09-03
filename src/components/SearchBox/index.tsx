@@ -19,6 +19,16 @@ import {
   Wrapper
 } from './index.styles';
 
+const itemToString = (item: TrendingTvShow | TrendingMovie | null) => {
+  if (item) {
+    const title = 'name' in item ? item.name : item?.title;
+
+    return title;
+  }
+
+  return '';
+};
+
 const SearchBox = (): JSX.Element => {
   const history = useHistory();
   const [matchingMedia, setMatchingMedia] = useState<(TrendingTvShow | TrendingMovie)[] | []>([]);
@@ -60,6 +70,7 @@ const SearchBox = (): JSX.Element => {
   const { isOpen, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps } =
     useCombobox({
       items: matchingMedia,
+      itemToString,
       onInputValueChange: getMatchingMedia,
       onSelectedItemChange: ({ selectedItem }) => {
         if (selectedItem) {
